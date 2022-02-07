@@ -8,7 +8,6 @@ const Step1 = ({ setStep }) => {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors },
   } = useForm({ criteriaMode: "all" });
 
@@ -22,25 +21,19 @@ const Step1 = ({ setStep }) => {
     console.log(user);
   };
 
-  /*   React.useEffect(() => {
-    setError("name", {
-      types: {
-        required: "This is required"
-      }
-    });
-  }, [setError]) */
-
   return (
     <div>
       <nav>
-        <p> ⬅ volver</p> <p>1 de 4</p>
+        <h5> ⬅ volver</h5> <h5>1 de 4</h5>
       </nav>
-
       <div>
         <h3>Dinos quien eres.</h3>
         <form onSubmit={handleSubmit(onSubmit)} className="register__form">
           <label className="register__photo">
-            <h3>Subir Foto</h3>
+
+          <img src="/images/loginregister/cam3.png" alt="camara" />
+           {/*  <h3>Subir Foto</h3> */}
+
             <input
               type="file"
               id="photo"
@@ -64,7 +57,7 @@ const Step1 = ({ setStep }) => {
             {errors.name ? (
               <>
                 {errors.name.type === "required" && (
-                  <p className="register__errors">{errors.name.message}</p>
+                  <span className="register__errors">{errors.name.message}</span>
                 )}
               </>
             ) : null}
@@ -88,10 +81,10 @@ const Step1 = ({ setStep }) => {
               {errors.email ? (
                 <>
                   {errors.email.type === "required" && (
-                    <p className="register__errors">{errors.email.message}</p>
+                    <span className="register__errors">{errors.email.message}</span>
                   )}
                   {errors.email.type === "pattern" && (
-                    <p className="register__errors">{errors.email.message}</p>
+                    <span className="register__errors">{errors.email.message}</span>
                   )}
                 </>
               ) : null}
@@ -114,10 +107,10 @@ const Step1 = ({ setStep }) => {
               {errors.phone ? (
                 <>
                   {errors.phone.type === "required" && (
-                    <p className="register__errors">{errors.phone.message}</p>
+                    <span className="register__errors">{errors.phone.message}</span>
                   )}
                   {errors.phone.type === "pattern" && (
-                    <p className="register__errors">{errors.phone.message}</p>
+                    <span className="register__errors">{errors.phone.message}</span>
                   )}
                 </>
               ) : null}
@@ -142,14 +135,14 @@ const Step1 = ({ setStep }) => {
               {errors.password ? (
                 <>
                   {errors.password.type === "required" && (
-                    <p className="register__errors">
+                    <span className="register__errors">
                       {errors.password.message}
-                    </p>
+                    </span>
                   )}
                   {errors.password.type === "pattern" && (
-                    <p className="register__errors">
+                    <span className="register__errors">
                       {errors.password.message}
-                    </p>
+                    </span>
                   )}
                 </>
               ) : null}
