@@ -1,0 +1,29 @@
+.scanPage-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+
+    .imgScan-container {
+        width: 300pt;
+        height: 216pt;
+        border-radius: 30px;
+        border: solid 10px;
+        border-color: slateGrey;  
+    }
+
+    .scanAssets-container {
+        display: flex;
+        flex-direction: row;
+        .code {
+            display: flex;
+            flex-direction: column;
+
+        }
+    }
+}
+
+
+   
+    
