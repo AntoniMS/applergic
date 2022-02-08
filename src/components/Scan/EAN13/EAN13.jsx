@@ -1,10 +1,8 @@
 import React from "react";
-import './ScanPage.scss';
-import EAN13 from "../../components/Scan/EAN13/EAN13";
-export const ScanContext = React.createContext({});
+import "./EAN13.scss";
+import { ScanContext } from "../../../pages/ScanPage/ScanPage"
 
-
-const ScanPage = () => {
+const EAN13 = () => {
     return (
         <div className='scanPage-container'>
         
@@ -34,4 +32,4 @@ const ScanPage = () => {
 
     );
 };
-export default ScanPage;
+export default EAN13;
