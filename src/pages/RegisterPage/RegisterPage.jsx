@@ -9,7 +9,7 @@ export const RegisterContext = React.createContext({})
 const user = { name: "pepe"}
 
 const RegisterPage = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   
   return (
     <div className="register">
