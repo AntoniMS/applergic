@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { API } from "../../../shared/services/api";
+import "./Step3.scss";
+import Step3Button from "./Step3Button/Step3Button";
 
 const Step3 = () => {
   const [allergens, setAllergens] = useState([]);
   const [allergensKeys, setAllergensKeys] = useState([]);
+
   const allergenUser = [];
+  const allergenId = [];
   const allergenCount = {};
 
   useEffect(() => {
@@ -28,28 +32,42 @@ const Step3 = () => {
     setAllergens(Object.values(allergensList));
   };
 
-  const addToAllergens = (id, letra) => {
-    const index = allergenUser.indexOf(id);
+  const addToAllergens = (allergen, letra) => {
+    const index = allergenId.indexOf(allergen._id);
+    console.log(allergen);
     const letraDiv = document.getElementsByClassName(letra);
+    console.log(letraDiv);
     if (index > -1) {
-      allergenUser.splice(index, 1);
+      allergenId.splice(index, 1);
+      allergenUser.splice(index,1);
       letra in allergenCount && allergenCount[letra]--;
-      allergenCount[letra] === 0 && letraDiv[0].classList.remove("active");
+      allergenCount[letra] === 0 &&
+      <>
+      {letraDiv[0].classList.remove("active")};
+      {letraDiv[1].classList.remove("active")};
+      </>
     } else {
-      allergenUser.push(id);
+      allergenId.push(allergen._id);
+      allergenUser.push(allergen);
       letra in allergenCount
         ? allergenCount[letra]++
         : (allergenCount[letra] = 1);
-      allergenCount[letra] === 1 && letraDiv[0].classList.add("active");
+      allergenCount[letra] === 1 && 
+      <>
+      {letraDiv[0].classList.add("active")};
+      {letraDiv[1].classList.add("active")};
+      </>
     }
     console.log(allergenCount);
+    console.log(allergenUser);
   };
 
+
   return (
-    <div className="allergen__page">
-      <p> ⬅ volver</p>
+    <div className="allergen">
       <nav>
-        <p>3 de 4</p>
+      <h5> ⬅ volver</h5>
+        <h5>3 de 4</h5>
       </nav>
       <div className="allergen__hero">
         <h3>Ahora selecciona tus alergias e intolerancias.</h3>
@@ -59,37 +77,36 @@ const Step3 = () => {
         </p>
       </div>
       
-      <div>
-        <div className="letras">
+      <div className="allergen__container">
+        <div className="allergen__box">
           {allergensKeys.map((letra) => {
             return (
-              <div className={letra} key={letra}>
+              <div className={"allergen__letra " + letra} key={letra}>
                 <a href={"#" + letra}>{letra}</a>
               </div>
             );
           })}
         </div>
+
+        <div className="allergen__list">
         {allergens.map((allergen) => {
           return (
-            <div key={JSON.stringify(allergen)}>
-              <div id={allergen[0].name[0]} key={JSON.stringify(allergen[0])}>
+            <div className="allergen__item" key={JSON.stringify(allergen)}>
+              <div id={allergen[0].name[0]} className={"allergen__capital "+ allergen[0].name[0]} key={JSON.stringify(allergen[0])}>
                 {allergen[0].name[0]}
               </div>
+              <div className="allergen__options">
               {allergen.map((allergen_item) => {
                 return (
-                  <p
-                    key={allergen_item._id}
-                    onClick={() => {
-                      addToAllergens(allergen_item._id, allergen_item.name[0]);
-                    }}
-                  >
-                    {allergen_item.name}
-                  </p>
+                  <Step3Button allergen_item={allergen_item} addToAllergens={addToAllergens}/>  
                 );
               })}
+              </div>
             </div>
           );
         })}
+        </div>
+        <button className="allergen__save" type="submit" >Guardar</button>
       </div>
     </div>
   );
