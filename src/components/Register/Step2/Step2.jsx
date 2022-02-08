@@ -15,8 +15,8 @@ const Step2 = ({ setStep }) => {
   const onSubmit = (formData) => {
     user.contactName = formData.contactName;
     user.contactEmail = formData.contactEmail;
-    user.contactPone = formData.contacyPhone;
-    user.contactPassword = formData.contactPassword;
+    user.contactPhone = formData.contactPhone;
+    user.policy = formData.policy;
     setStep(3);
     console.log(user);
   };
