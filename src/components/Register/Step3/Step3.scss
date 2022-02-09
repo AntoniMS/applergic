@@ -1,101 +1,135 @@
-.allergen__page {
+.allergen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   height: 100%;
+  overflow: hidden;
 
-  .nav {
-    h3 {
-      margin: 0;
-      font-size: 21px;
-    }
-
-    h5 {
-      margin-top: 20px;
-      text-align: justify;
-      font-size: 15px;
-      color: rgb(155, 154, 154);
-    }
-  }
-}
-
-.allergen {
-  &__errors {
-    margin-bottom: 5px;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 500;
-    color: rgb(221, 60, 92);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   &__hero {
-    width: 290px;
+    padding: 0 24px;
     text-align: center;
-
     h3 {
-      margin: 0;
-      font-size: 21px;
+      padding-bottom: 9px;
+      font-size: 20px;
     }
-
     p {
-      margin-top: 20px;
-      text-align: justify;
-      font-size: 15px;
-      color: rgb(155, 154, 154);
+      padding-bottom: 9px;
+      font-size: 14px;
+      color: rgb(129, 140, 151);
     }
   }
-
-  &__board {
-      width: 100%;
+  &__box {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    width: 250px;
+    height: 250px;
   }
 
-  &__label {
+  &__letra {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-
-    padding: 0px;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-
-    &--input {
-      font-size: 14.5px;
-      width: 315px;
-      height: 62px;
-      border: 0;
-      border-bottom: 1px rgb(200, 200, 200) solid;
-    }
-  }
-
-  &__skip {
-    margin-top: 10px;
-    & a {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(0, 217, 255, 0.924);
-      text-decoration: none;
-    }
-  }
-
-  &__button {
-    margin-top: 10px;
-    height: 50px;
-    width: 325px;
-    font-size: 17px;
+    width: 55px;
+    height: 55px;
     font-weight: bold;
     color: white;
-    background-color: silver;
+    background: rgb(192, 192, 192);
+    border-radius: 50%;
+
+    a {
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+    &.active {
+      background: #f84971;
+    }
+  }
+
+  &__list {
+    margin-bottom: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+  }
+
+  &__capital{
+      font-weight: bold;
+      color: rgb(105, 105, 105);
+      text-decoration: none;
+      border-radius: 50%;
+    }
+    &.active {
+      color: white;
+      background: #f84971;
+      border-radius: 50%;
+    }
+
+  &__options {
+    margin: 0 5px;
+
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(143, 143, 143);
+    background: rgb(245, 245, 245);
+    border: solid 1px rgb(173, 173, 173);
+    border-radius: 100px;
+    padding: 0 10px;
+    height: 37px;
+    margin: 1.5px 3px;
+    font-weight: 600;
+    font-size: 17px;
+    
+    &.active{
+    background: #f84971;
+    color: rgb(255, 255, 255);
+    }
+
+  }
+/* 
+  &__btn:focus{
+    background: #f84971;
+    color: rgb(255, 255, 255);
+  } */
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+
+  &__save {
+    margin-top: 5px;
+    height: 50px;
+    width: 325px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(0, 174, 255);
     cursor: pointer;
-    border-radius: 7px;
+    border-radius: 9px;
     border: none;
   }
 }
