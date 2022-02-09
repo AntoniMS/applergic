@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DiaryPage from "./pages/DiaryPage/DiaryPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
 import { JwtContext } from './shared/contexts/JwtContext';
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
