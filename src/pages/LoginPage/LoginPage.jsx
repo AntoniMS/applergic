@@ -41,17 +41,11 @@ export default function LoginPage () {
     return (
         <div>
             <div className="login__page"></div>
-            <nav>
             <img class="imgA1"src="/images/loginregister/platos.png" alt="platos" />
             <img class="imgB1"src="/images/welcome/logo.png" alt="logo" />
-                
-            </nav>
-            <nav>
-                <h3>¡Bienvenido de nuevo¡</h3>
-            </nav>
-            <nav>
-                <p>Por favor, introduce tus datos para continuar.</p>
-            </nav>
+            <h3>¡Bienvenido de nuevo¡</h3>
+            <p>Por favor, introduce tus datos para continuar.</p>
+            
 
         <form onSubmit={handleSubmit(onSubmit)}>
         <label className="register__info" htmlFor="email">
