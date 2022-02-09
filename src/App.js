@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
@@ -7,9 +8,15 @@ import DiaryPage from "./pages/DiaryPage/DiaryPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
+import { JwtContext } from './shared/contexts/JwtContext';
+import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 
 function App() {
+  const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
+
+
   return (
+    <JwtContext.Provider value={{ jwt, setJwt }}>
     <div>
       <Router>
         <Routes>
@@ -23,6 +30,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </JwtContext.Provider>
   );
 }
 

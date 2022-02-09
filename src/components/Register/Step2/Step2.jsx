@@ -13,10 +13,10 @@ const Step2 = ({ setStep }) => {
   } = useForm({ criteriaMode: "all" });
 
   const onSubmit = (formData) => {
-    user.contactName = formData.contactName;
-    user.contactEmail = formData.contactEmail;
-    user.contactPhone = formData.contactPhone;
-    user.policy = formData.policy;
+    user.contact = formData.contactName;
+    user.emailContact = formData.contactEmail;
+    user.phoneContact = formData.contactPhone;
+    user.polize = formData.policy;
     setStep(3);
     console.log(user);
   };
