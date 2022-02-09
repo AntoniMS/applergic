@@ -12,7 +12,7 @@ const Step2 = ({ setStep }) => {
         <img src="/images/welcome/rectangle.png" alt="rectangle"/>
         <p>Lleva tu diario de compras y actividades.</p>
         <h5> Saltar</h5> 
-        <h5 onClick={(()=>{setStep(3)})}> Siguiente </h5>
+        <h5 onClick={(()=>{setStep(3)})}> Siguiente →</h5>
     </div>
     
   );
