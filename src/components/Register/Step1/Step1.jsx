@@ -126,9 +126,9 @@ const Step1 = ({ setStep }) => {
                 {...register("password", {
                   required: "Introduce una contraseña, por favor.",
                   pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
                     message:
-                      "Debe contener mínimo 8 carácteres, mayúsculas y minúsculas.",
+                      "Debe contener mínimo 8 carácteres, 1 mayúscula, 1 minúscula, 1 símbolo y 1 número.",
                   },
                 })}
               />
