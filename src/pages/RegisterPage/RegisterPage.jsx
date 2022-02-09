@@ -8,14 +8,15 @@ import Step5 from "../../components/Register/Step5/Step5";
 
 export const RegisterContext = React.createContext({})
 
-const user = { name: "pepe"}
+const user = { allergens: []}
+const userAllergens = [];
 
 const RegisterPage = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   
   return (
     <div className="register">
-      <RegisterContext.Provider value={{user}}>
+      <RegisterContext.Provider value={{user, userAllergens}}>
       {step === 1 && <Step1 setStep={setStep} />}
       {step === 2 && <Step2 setStep={setStep} />}
       {step === 3 && <Step3 setStep={setStep} />}

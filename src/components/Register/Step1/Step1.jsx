@@ -8,12 +8,12 @@ const Step1 = ({ setStep }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm({ criteriaMode: "all" });
+    formState: { errors, isValid },
+  } = useForm({ criteriaMode: "all", mode: "onBlur" });
 
   const onSubmit = (formData) => {
     user.name = formData.name;
-    user.photo = formData.photo;
+    if(formData.photo.length > 0) user.photo = formData.photo;
     user.email = formData.email;
     user.password = formData.password;
     user.phone = formData.phone;
@@ -48,6 +48,7 @@ const Step1 = ({ setStep }) => {
                 className="register__info--input"
                 id="name"
                 placeholder="Tu nombre completo"
+                value={user.name}
                 {...register("name", {
                   required: "Introduce tu nombre, por favor.",
                 })}
@@ -148,7 +149,7 @@ const Step1 = ({ setStep }) => {
               ) : null}
             </label>
 
-            <button className="register__button" type="submit">
+            <button  disabled={!isValid} className="register__button" type="submit">
               Guardar perfil
             </button>
           </div>

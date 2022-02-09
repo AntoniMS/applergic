@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import "../Step3.scss";
 
 
-const Step3Button = ({ allergen_item, addToAllergens }) => {
-const [active, setActive] = useState("")
+const Step3Button = ({ allergen_item, addToAllergens, isActive }) => {
+const [active, setActive] = useState(isActive);
 
   return (
 

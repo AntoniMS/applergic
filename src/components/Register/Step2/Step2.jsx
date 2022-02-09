@@ -24,7 +24,7 @@ const Step2 = ({ setStep }) => {
 
   return (
       <div className="contact__page">
-        <p> ⬅ volver</p> 
+        <p onClick={()=>setStep(1)}> ⬅ volver</p> 
       <nav>
       <p>2 de 4</p>
       </nav>
