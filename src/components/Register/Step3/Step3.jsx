@@ -73,7 +73,7 @@ const Step3 = ({ setStep }) => {
   return (
     <div className="allergen">
       <nav>
-      <h5> ⬅ volver</h5>
+      <h5 onClick={()=>setStep(2)}> ⬅ volver</h5>
         <h5>3 de 4</h5>
       </nav>
       <div className="allergen__hero">
