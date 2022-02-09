@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DiaryPage from "./pages/DiaryPage/DiaryPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="register" element={<RegisterPage />} />
           <Route path="diary" element={<DiaryPage />} />
           <Route path="scan" element={<ScanPage />} />
+          <Route path="welcome" element={<WelcomePage />} />
           <Route path="scan/:id" element={<ScanDetailPage />} />
         </Routes>
       </Router>
