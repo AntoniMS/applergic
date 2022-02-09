@@ -1,15 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { API } from "../../../shared/services/api";
 import "./Step3.scss";
 import Step3Button from "./Step3Button/Step3Button";
+import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
+import { useForm } from "react-hook-form";
 
-const Step3 = () => {
+const Step3 = ({ setStep }) => {
+  const { user, userAllergens } = React.useContext(RegisterContext);
   const [allergens, setAllergens] = useState([]);
   const [allergensKeys, setAllergensKeys] = useState([]);
 
-  const allergenUser = [];
-  const allergenId = [];
-  const allergenCount = {};
+
+  const {
+    handleSubmit
+  } = useForm({ criteriaMode: "all" });
 
   useEffect(() => {
     API.get("allergens").then((res) => {
@@ -22,7 +26,7 @@ const Step3 = () => {
 
     for (let i = 65; i <= 90; i++) {
       const result = allergensApi.filter(
-        (allergen) => allergen.name[0].toUpperCase() === String.fromCharCode(i)
+        (allergen) => allergen.name[0].toUpperCase() === String.fromCharCode(i) 
       );
       if (result.length !== 0) {
         allergensList[String.fromCharCode(i)] = result;
@@ -33,33 +37,36 @@ const Step3 = () => {
   };
 
   const addToAllergens = (allergen, letra) => {
-    const index = allergenId.indexOf(allergen._id);
-    console.log(allergen);
+    const index = user.allergens.indexOf(allergen._id);
     const letraDiv = document.getElementsByClassName(letra);
-    console.log(letraDiv);
     if (index > -1) {
-      allergenId.splice(index, 1);
-      allergenUser.splice(index,1);
-      letra in allergenCount && allergenCount[letra]--;
-      allergenCount[letra] === 0 &&
+      user.allergens.splice(index, 1);
+      userAllergens.splice(index,1);
+      const result = userAllergens.filter(
+        (allergen) => allergen.name[0].toUpperCase() === letra 
+      );
+      result.length === 0 &&
       <>
       {letraDiv[0].classList.remove("active")};
       {letraDiv[1].classList.remove("active")};
       </>
     } else {
-      allergenId.push(allergen._id);
-      allergenUser.push(allergen);
-      letra in allergenCount
-        ? allergenCount[letra]++
-        : (allergenCount[letra] = 1);
-      allergenCount[letra] === 1 && 
+      user.allergens.push(allergen._id);
+      userAllergens.push(allergen);
+      const result = userAllergens.filter(
+        (allergen) => allergen.name[0].toUpperCase() === letra 
+      );
+      result.length !== 0 && 
       <>
       {letraDiv[0].classList.add("active")};
       {letraDiv[1].classList.add("active")};
       </>
     }
-    console.log(allergenCount);
-    console.log(allergenUser);
+  };
+
+
+  const onSubmit = (formData) => {  
+    setStep(4);
   };
 
 
@@ -79,9 +86,14 @@ const Step3 = () => {
       
       <div className="allergen__container">
         <div className="allergen__box">
+        {console.log(userAllergens)}
           {allergensKeys.map((letra) => {
+            const result = userAllergens.filter(
+              (allergen) => allergen.name[0].toUpperCase() === letra 
+            );  
+            const clases = result.length > 0 ? (letra + " active") : letra   
             return (
-              <div className={"allergen__letra " + letra} key={letra}>
+              <div className={"allergen__letra "+ clases} key={letra}>
                 <a href={"#" + letra}>{letra}</a>
               </div>
             );
@@ -90,15 +102,23 @@ const Step3 = () => {
 
         <div className="allergen__list">
         {allergens.map((allergen) => {
+          const result = userAllergens.filter(
+              (userAllergen) => userAllergen.name[0].toUpperCase() === allergen[0].name[0].toUpperCase() 
+            );
+            const clases = result.length > 0 ? (allergen[0].name[0] + " active") : allergen[0].name[0]   
           return (
             <div className="allergen__item" key={JSON.stringify(allergen)}>
-              <div id={allergen[0].name[0]} className={"allergen__capital "+ allergen[0].name[0]} key={JSON.stringify(allergen[0])}>
+              <div id={allergen[0].name[0]} className={"allergen__capital "+ clases} key={JSON.stringify(allergen[0])}>
                 {allergen[0].name[0]}
               </div>
               <div className="allergen__options">
               {allergen.map((allergen_item) => {
+                const result = userAllergens.filter(
+                  (userAllergen) => userAllergen.name === allergen_item.name 
+                );
+                const isActive = result.length > 0
                 return (
-                  <Step3Button allergen_item={allergen_item} addToAllergens={addToAllergens}/>  
+                  <Step3Button allergen_item={allergen_item} addToAllergens={addToAllergens} isActive={isActive}/>  
                 );
               })}
               </div>
@@ -106,7 +126,9 @@ const Step3 = () => {
           );
         })}
         </div>
+        <form onSubmit={handleSubmit(onSubmit)}>
         <button className="allergen__save" type="submit" >Guardar</button>
+        </form>
       </div>
     </div>
   );

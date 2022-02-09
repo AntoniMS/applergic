@@ -86,10 +86,14 @@
     font-size: 17px;
     font-weight: bold;
     color: white;
-    background-color: silver;
+    background-color: #26c7dc;
     cursor: pointer;
     border-radius: 7px;
     border: none;
+
+    &:disabled{
+      background-color: silver;
+    }
   }
 
 }
