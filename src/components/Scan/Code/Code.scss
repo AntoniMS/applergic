@@ -1,0 +1,20 @@
+.code-button {
+    width: 150px;
+    height: 150px;
+}
+
+.code-button.selected {
+    background-color: aqua;
+}
+
+.code-button-ean13 {
+   background-image: url(./assets/EAN13_black.png);
+}
+
+.code-button-ean13.selected {
+    background-image: url(./assets/EAN13_white.png);
+ }
+
+ .code-button-qr {
+    background-image: url(./assets/QR_black.png);
+ }

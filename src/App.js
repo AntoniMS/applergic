@@ -22,11 +22,11 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="diary" element={<DiaryPage />} />
-          <Route path="scan" element={<ScanPage />} />
-          <Route path="welcome" element={<ScanPage />} />
-          <Route path="scan/:id" element={<ScanDetailPage />} />
+          <Route path="register" element={<RegisterPage />} />    
+          <Route path="diary" element={<DiaryPage />} />        
+          <Route path="welcome" element={<WelcomePage />} />
+          <Route path="scan" element={<ScanPage />} />        
+          <Route path="scan/:id" element={<ScanDetailPage />} />            
         </Routes>
       </Router>
     </div>
