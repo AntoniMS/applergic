@@ -1,0 +1,48 @@
+.c-barcode-scanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  &__hero {
+    padding: 0 24px;
+    text-align: center;
+    h3 {
+      padding-bottom: 9px;
+      font-size: 20px;
+    }
+    p {
+      padding-bottom: 9px;
+      font-size: 14px;
+      color: rgb(129, 140, 151);
+    }
+  }
+
+  &__close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+
+  &__cam {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .drawingBuffer {
+      display: none;
+    }
+
+    video {
+      width: 325px;
+      border: 15px solid silver;
+      border-radius: 15px;
+    }
+  }
+}
+
