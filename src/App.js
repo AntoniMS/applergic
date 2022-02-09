@@ -25,7 +25,7 @@ function App() {
           <Route path="register" element={<RegisterPage />} />    
           <Route path="diary" element={<DiaryPage />} />        
           <Route path="welcome" element={<WelcomePage />} />
-          <Route path="scan" element={<ScanPage />} />        
+               
           <Route path="scan/:id" element={<ScanDetailPage />} />            
         </Routes>
       </Router>
