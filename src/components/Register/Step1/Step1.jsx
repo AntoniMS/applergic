@@ -13,7 +13,7 @@ const Step1 = ({ setStep }) => {
 
   const onSubmit = (formData) => {
     user.name = formData.name;
-    if(formData.photo.length > 0) user.photo = formData.photo;
+    if(formData.photo.length > 0) user.photo = formData.photo[0];
     user.email = formData.email;
     user.password = formData.password;
     user.phone = formData.phone;
@@ -37,6 +37,7 @@ const Step1 = ({ setStep }) => {
             <input
               type="file"
               id="photo"
+              value={user.photo && user.photo[0]}
               accept="image/png, image/jpg, image/jpeg"
               {...register("photo")}
             />
@@ -68,6 +69,7 @@ const Step1 = ({ setStep }) => {
                 className="register__info--input"
                 id="email"
                 type="text"
+                value={user.email}
                 placeholder="Email"
                 {...register("email", {
                   required: "Introduce un email, por favor.",
@@ -96,6 +98,7 @@ const Step1 = ({ setStep }) => {
                 className="register__info--input"
                 type="text"
                 id="phone"
+                value={user.phone}
                 placeholder="Móvil"
                 {...register("phone", {
                   required: "Introduce un nº de teléfono, por favor.",
@@ -123,6 +126,7 @@ const Step1 = ({ setStep }) => {
                 name="password"
                 id="password"
                 type="password"
+                value={user.password}
                 placeholder="Contraseña"
                 {...register("password", {
                   required: "Introduce una contraseña, por favor.",

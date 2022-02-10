@@ -1,36 +1,43 @@
 import "./Step4.scss";
-import React, { useContext } from 'react'
-import {useNavigate} from 'react-router-dom'
+import React, { useContext } from "react";
 import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
 import { API } from "../../../shared/services/api";
-import { JwtContext } from '../../../shared/contexts/JwtContext';
+import { JwtContext } from "../../../shared/contexts/JwtContext";
 
 const Step4 = ({ setStep }) => {
-  const { user, userAllergens} = React.useContext(RegisterContext);
-  const { jwt, setJwt } = useContext(JwtContext);
-  const navigate = useNavigate();
+  const { user, userAllergens } = React.useContext(RegisterContext);
+  const { setJwt } = useContext(JwtContext);
   console.log(user);
-  
+
   const saveUser = () => {
-
-    API.post('users/', JSON.stringify(user)).then(res => {
-      console.log(JSON.stringify(user))    
-        console.log(res);
-    })
-
-
-    // API.post('users/login', user).then(res => {
-    //   if(res.data.code === 404){
-    //     document.getElementById('register_subit_error').innerHTML = res.data.message
-    //   }else{
-    //     console.log(res);
-    //     localStorage.setItem('token', res.data.token)
-    //     localStorage.setItem('user', JSON.stringify(res.data.user))
-    //     setJwt(res.data.token);
-    //     navigate('/')
-    //   }  
-    // })
-  }
+    let fd = new FormData();
+    for (let key in user) {
+      if(key === "photo"){
+        fd.append(key, user[key])
+      }else{
+        if(key === "allergens"){
+          for (let allergenKey in user[key]){
+            fd.set(key[allergenKey], user[key][allergenKey]);
+          }
+        }else{
+          fd.set(key, user[key]);
+        }
+      }
+      
+    }
+    console.log(fd);
+    API.post("users/", fd).then((res) => {
+      if(res.data.code === 404){
+        setStep(6);
+      }else{
+        console.log(user);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        setJwt(res.data.token);
+        setStep(5);
+      }
+    });
+  };
 
   return (
     <div className="confirm">
@@ -42,16 +49,21 @@ const Step4 = ({ setStep }) => {
         </p>
       </div>
       <div className="confirm__allergens">
-        {
-          userAllergens.map((allergen) => {
-        
-            return <div className="confirm__options"><span key={JSON.stringify(allergen)}>{allergen.name}</span></div>
-          })
-        }
-        <button onClick={()=> setStep(3)} className="confirm__new">Añadir nuevos</button>
+        {userAllergens.map((allergen) => {
+          return (
+            <div className="confirm__options">
+              <span key={JSON.stringify(allergen)}>{allergen.name}</span>
+            </div>
+          );
+        })}
+        <button onClick={() => setStep(3)} className="confirm__new">
+          Añadir nuevos
+        </button>
       </div>
 
-      <button onClick={()=> saveUser()}className="confirm__save">CONFIRMAR</button>
+      <button onClick={() => saveUser()} className="confirm__save">
+        CONFIRMAR
+      </button>
     </div>
   );
 };

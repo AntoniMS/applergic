@@ -2,14 +2,13 @@ import "./Step2.scss";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
-import { Link } from "react-router-dom";
 
 const Step2 = ({ setStep }) => {
   const { user } = React.useContext(RegisterContext);
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({ criteriaMode: "all" });
 
   const onSubmit = (formData) => {
@@ -44,6 +43,7 @@ const Step2 = ({ setStep }) => {
               <input
                 className="contact__info--input"
                 id="contactName"
+                value={user.contact}
                 placeholder="Nombre completo de tu contacto."
                 {...register("contactName")}
               />
@@ -54,6 +54,7 @@ const Step2 = ({ setStep }) => {
                 className="contact__info--input"
                 id="contactEmail"
                 type="text"
+                value={user.emailContact}
                 placeholder="Dirección e.mail"
                 {...register("contactEmail", {
                   pattern: {
@@ -80,6 +81,7 @@ const Step2 = ({ setStep }) => {
                 className="contact__info--input"
                 type="text"
                 id="contactPhone"
+                value={user.phoneContact}
                 placeholder="Teléfono de tu contacto."
                 {...register("contactPhone", {
                   pattern: {
@@ -103,17 +105,18 @@ const Step2 = ({ setStep }) => {
               <input
                 className="contact__info--input"
                 id="policy"
+                value={user.polize}
                 placeholder="Compañía de seguros / Nº Póliza"
                 {...register("policy")}
               />
             </label>
 
-            <button className="contact__button" type="submit">
+            <button disabled={!isValid} className="contact__button" type="submit">
               Guardar emergencias
             </button>
 
-            <p className="contact__skip">
-              <Link to="/login">Registraré mi contacto en otro momento</Link>
+            <p className="contact__skip" onClick={()=>setStep(3)}>
+              Registraré mi contacto en otro momento
             </p>
           </div>
         </form>
