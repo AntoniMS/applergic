@@ -1,7 +1,7 @@
 import React from 'react';
 import BarcodeScannerComponent from "react-webcam-barcode-scanner";
 
-function QrScan({setData}) {
+function QrScan({changeData}) {
 
 
   return (
@@ -10,8 +10,7 @@ function QrScan({setData}) {
         width={"100%"}
         height={"auto"}
         onUpdate={(err, result) => {
-          if (result) setData(result.text)
-          else setData('Not Found')
+          if (result) changeData(result.text)
         }}
       />
     </>

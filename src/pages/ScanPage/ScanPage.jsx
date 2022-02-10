@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./ScanPage.scss";
 import  Barcode  from "../../components/Scan/Barcode/Barcode";
 import QrScan from "../../components/Scan/QrScan/QrScan";
+import axios from "axios";
+import CryptoJS from 'crypto-js';
 
 
 const ScanPage = () => {
@@ -10,6 +12,22 @@ const ScanPage = () => {
   const [option, setOption] = React.useState("barcode");
   let barcode_class = (option === "barcode") ? "active" : "";
   let qr_class = (option === "qr") ? "active" : "";
+
+  const changeData = (code)=>{
+    if(code !== data){
+      setData(code);
+      searchCode(code);
+    }
+  }
+
+  const searchCode = (code) => {
+    var hash = CryptoJS.HmacSHA1(code,process.env.DG_API_SECRET,true).toString(CryptoJS.enc.Base64);
+    axios(process.env.REACT_APP_BACK_URL+"?upcCode="+code+"&language=es&app_key="+process.env.DG_API_KEY+"&signature="+hash).then(
+      (res) => {
+        console.log(res.data)
+      }
+    );
+  }
 
   return (
     <div className="barcode">
@@ -27,7 +45,7 @@ const ScanPage = () => {
 
       <div className="barcode__cam">
         {
-          (option === "barcode") ? <Barcode setData={setData}/>:<QrScan setData={setData}/>
+          (option === "barcode") ? <Barcode changeData={changeData}/>:<QrScan changeData={changeData}/>
           
         }
           
