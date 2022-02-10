@@ -1,3 +1,6 @@
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
 .home {
   display: flex;
   flex-direction: column;
@@ -13,7 +16,7 @@
     align-items: center;
     padding: 23px;
 
-    img{
+    img {
       width: 175px;
     }
   }
@@ -53,14 +56,12 @@
     background-color: #26c7dc;
     text-decoration: none;
 
-    h4{
+    h4 {
       padding-left: 30px;
       padding-right: 70px;
     }
-   
 
     img {
-    
       width: 48px;
     }
 
@@ -74,7 +75,6 @@
   }
 
   p {
-    
     margin: 0;
     margin-top: 6px;
     font-size: 12px;
@@ -82,17 +82,60 @@
     color: rgb(148, 148, 148);
   }
 
-  &__footer{
+  &__footer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     max-width: 400px;
     width: 100%;
 
-    img{
-
+    img {
       width: 50px;
     }
   }
 
+  &__nav {
+    width: 375px;
+    display: flex;
+  
+  }
+}
+
+ul.p-menu-list.p-reset {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-around;
+  font-size: 16px;
+  font-weight: 600;
+  background: white;
+  padding: 20px;
+  width: 220px;
+  height: 320px;
+}
+a.p-menuitem-link {
+  color: #161616;
+}
+
+button.p-button.p-component.p-button-icon-only {
+  color: #26c7dc;
+  border: none;
+  background: white;
+  margin: 10px 0 0 10px;
+}
+
+span.p-menuitem-icon.pi.pi-fw.pi-times.closebutton {
+  margin-left: 160px;
+}
+
+.p-menu.p-component.home__menu.p-menu-overlay.p-connected-overlay-enter-done {
+  display: flex;
+  flex-direction: column;
+  background: rgba(180, 180, 180, 0.329);
+  border: solid 1px rgb(240, 240, 240);
+  border-radius: 2px;
+  margin-top: -30px;
+  margin-left:-10px;
+  width: 380px;
+  height: 680px;
 }
