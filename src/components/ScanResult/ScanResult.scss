@@ -1,15 +1,20 @@
 .scan-result {
-
+    overflow: hidden;
+    width: 216pt;
+    height: 216pt;
+    border-radius: 30px;
+    border: solid 10px;
+    border-color: #595f65;
 }
 
 .scan-result-unknown {
-
+    border-color: #f8b449;
 }
 
 .scan-result-fit {
-
+    border-color: #30be76 ;
 }
 
 .scan-result-unfit {
-    
+    border-color: #f84971;
 }
