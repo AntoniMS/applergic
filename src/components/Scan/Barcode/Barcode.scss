@@ -1,4 +1,4 @@
-.c-barcode-scanner {
+.barcode {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,6 +7,7 @@
   width: 100%;
 
   &__hero {
+    margin: 20px auto;
     padding: 0 24px;
     text-align: center;
     h3 {
@@ -21,10 +22,12 @@
   }
 
   &__close {
-    width: 100%;
+    width: 375px;
     display: flex;
     justify-content: flex-end;
-    margin-top: 5px;
+    img {
+      margin: 5px 15px 0px 0px;
+    }
   }
 
   &__cam {
@@ -33,16 +36,50 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-
-    .drawingBuffer {
-      display: none;
-    }
+    width: 50%;
 
     video {
-      width: 325px;
+      width: 300px;
       border: 15px solid silver;
       border-radius: 15px;
     }
   }
-}
 
+  &__buttons {
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  p {
+  
+    font-size: 14px;
+    color: rgb(129, 140, 151);
+  }
+
+  &__btn {
+    background: #49e4ff;
+    border: 0;
+    border-radius: 50%;
+    p {
+  
+      font-size: 14px;
+      color: rgb(129, 140, 151);
+    }
+
+    img {
+      padding: 10px;
+      width: 48px;
+    }
+  }
+  &__btn:focus {
+    background: #949494;
+
+    img {
+      -webkit-filter: invert(100%);
+      filter: invert(100%);
+    }
+  }
+}
