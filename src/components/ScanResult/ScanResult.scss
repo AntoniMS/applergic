@@ -7,53 +7,60 @@
 
 .scan-result-unknown {
     display: flex;
-    background-image: url("../../../public/images/scan/invalidName_2022-02-10/borderOrange.png");
+    background-image: url("../../../public/images/scan/invalidName/borderOrange.png");
     background-repeat: no-repeat;
+    background-position: center;
     &:after {
         content:"";
         width: 50px;
         height: 50px;
         background: #fbd292;
         border-radius: 30px;
-        margin-top: 25%;
-        background-image: url("../../../public/images/scan/invalidName_2022-02-10/invalidName.png");
+        margin-top: 120px;
+        margin-left: 30px;
+        background-image: url("../../../public/images/scan/invalidName/invalidName.png");
         background-repeat: no-repeat;
         background-position: center;
-        position: relative;
+        position: absolute;
     } 
 }
 
 .scan-result-fit {
     display: flex;
-    background-image: url("../../../public/images/scan/nounOk1494760_2022-02-10//borderGreen.png");
+    background-image: url("../../../public/images/scan/nounOk/borderGreen.png");
     background-repeat: no-repeat;
+    background-position: center;
     &:after {
         content:"";
         width: 50px;
         height: 50px;
         background: #83d8ad;
         border-radius: 30px;
-        background-image: url("../../../public/images/scan/nounOk1494760_2022-02-10/nounOk.png");
+        margin-top: 30px;
+        margin-left: 30px;
+        background-image: url("../../../public/images/scan/nounOk/nounOk.png");
         background-repeat: no-repeat;
         background-position: center;
-        position: relative;
+        position: absolute;
     }
 }
 
 .scan-result-unfit {
     display: flex;
-    background-image: url("../../../public/images/scan/nounX2500114_2022-02-10/borderPink.png");
+    background-image: url("../../../public/images/scan/nounX/borderPink.png");
     background-repeat: no-repeat;
+    background-position: center;
     &:after {
         content:"";
         width: 50px;
         height: 50px;
         background: #fb92aa;
         border-radius: 30px;
-        margin-top: 50%;
-        background-image: url("../../../public/images/scan/nounX2500114_2022-02-10/nounX2500114.png");
+        margin-top: 200px;
+        margin-left: 30px;
+        background-image: url("../../../public/images/scan/nounX/nounX2500114.png");
         background-repeat: no-repeat;
         background-position: center;
-        position: relative;
+        position: absolute;
     }
 }
