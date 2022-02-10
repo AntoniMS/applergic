@@ -1,3 +1,10 @@
+.welcome{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+
 img{
     display: block;
     margin: 30px auto;
@@ -10,4 +17,5 @@ p{
 h5{
     text-align:left;
     position: top;
+}
 }
