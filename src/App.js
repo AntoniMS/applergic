@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import DiaryPage from "./pages/DiaryPage/DiaryPage";
+import DiaryDetailPage from "./pages/DiaryPage/DiaryDetailPage/DiaryDetailPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
@@ -23,7 +24,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />    
-          <Route path="diary" element={<DiaryPage />} />        
+          <Route path="diary" element={<DiaryPage />} />   
+          <Route path="diaryDetail" element={<DiaryDetailPage />} />              
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="scan" element={<ScanPage />} />  
           <Route path="scanPage" element={<ScanDetailPage />} />            
