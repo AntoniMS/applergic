@@ -1,7 +1,7 @@
-.Welcome{
+.Intro{ 
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     align-content: center;
     align-items: center;
 
@@ -10,12 +10,5 @@ img{
     margin: 30px auto;
     
 }
-p{
-    text-align: center;
-    }
+}
 
-h5{
-    text-align:left;
-    position: top;
-}
-}
