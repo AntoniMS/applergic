@@ -1,11 +1,40 @@
 import "./HomePage.scss";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu } from "primereact/menu";
+import { Button } from 'primereact/button';
+
+
+
+
 
 const HomePage = () => {
+
+  const menu = useRef(null);
+  const navigate = useNavigate();
+
+  let items = [
+    {label: '', icon: 'pi pi-fw pi-times closebutton'},
+ 
+    {label: 'Perfil', icon: 'pi pi-fw pi-user',command:()=>{ navigate("/login"); }},
+    {label: 'Favorito', icon: 'pi pi-fw pi-star',command:()=>{ navigate("/register"); }},
+    {label: 'Diario', icon: 'pi pi-fw pi-book',command:()=>{ navigate("/diary"); }},
+    {label: 'Compartir', icon: 'pi pi-fw pi-share-alt',command:()=>{ navigate("/"); }},
+    {label: 'Traductor', icon: 'pi pi-fw pi-globe',command:()=>{ navigate("/"); }},
+    {label: 'Terminos', icon: 'pi pi-fw pi-info-circle',command:()=>{ navigate("/welcome"); }},
+    {label: 'Salir', icon: 'pi pi-fw pi-sign-out',command:()=>{ navigate("/"); }}
+];
+
   return (
     <div className="home">
-      <nav>menu</nav>
+      <div className="home__nav">
+        <Menu className="home__menu" model={items} popup ref={menu} />
+        <Button
+          label=""
+          icon="pi pi-bars"
+          onClick={(event) => menu.current.toggle(event)}
+        />
+      </div>
       <div className="home__container">
         <div className="home__logo">
           <img
