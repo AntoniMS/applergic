@@ -7,18 +7,37 @@ const ScanDetailPage = () => {
 
     return (
         
-        <div className="scan-page-container">
-        
-            <h2>Aqui tienes el resultado.</h2>
+        <div className="scan">
+            <div className="scan__turn-close">
+                <Link className="scan__turn-close__turn" to="/scan">
+                    <img src="../../../images/icons/volver.png"/>
+                </Link>
+                <Link className="close" to="/">
+                    <img src="/images/icons/close.png" alt="close" />
+                </Link>
+            </div>
+            <h3>Aqui tienes el<br></br>resultado.</h3>
        
-            <p>Este producto NO es apto para ti, contiene uva.</p>
-            <ScanResult result="unknown"/>
-            <div className="ok__info">
+            <p>Este producto NO es apto<br></br>para ti, contiene uva.</p>
+            <div className="scan__wraper">
+                <ScanResult result="unknown"/>
+                <div className="scan__wraper__favorites">
+                    
+                    <img src="../../../images/scan/favorito/favorito.png" alt="star"/>
+                    <Link to="/diary">
+                        <img src="../../../images/scan/diario/diario.png" alt="diary"/>
+                    </Link>
+                    <Link to="/">
+                        <img src="../../../images/scan/red/red.png" alt="red"/>
+                    </Link>
+                </div>
+            </div>
+            <div className="scan__info">
                 <h3>Matarromera Tinto Crianza 2016 -75cl.</h3>
                 <p>Bodega Matarromera</p>
                 <input></input>
-                <div className="ok__btn">
-                    <Link className="ok__link" to="/scan">
+                <div className="scan__btn">
+                    <Link className="scan__link" to="/scan">
                     <h4> Escanea otro producto</h4>
                     </Link>
                 </div>
