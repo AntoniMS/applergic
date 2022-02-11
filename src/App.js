@@ -9,6 +9,7 @@ import DiaryDetailPage from "./pages/DiaryPage/DiaryDetailPage/DiaryDetailPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
+import ByePage from "./pages/ByePage/ByePage";
 import { JwtContext } from './shared/contexts/JwtContext';
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="scan" element={<ScanPage />} />  
           <Route path="scanPage" element={<ScanDetailPage />} />            
+          <Route path="byePage" element={<ByePage />} />            
         </Routes>
       </Router>
     </div>
