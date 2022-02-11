@@ -58,36 +58,8 @@ const DiaryDetailPage = () => {
       </div>
 
 
-
-{/*PASAR A DIARYPAGE */}
-
-      <div className="diaryDetail__inform">
-        {products.map((product, index) => (
-          <figure className="inform" key={index}>
-            <img src={product.image} className="inform__img"></img>
-            <div className="inform__box">
-              <p className="inform__info">09-02-2022</p>
-              <figcaption className="inform__info">{product.name}</figcaption>
-              <p className="inform__info">Notas: {product.notes}</p>
-            </div>
-            <div className="inform__buttons">
-              <img
-                onClick={() => {""}}
-                src="/images/icons/close.png"
-                alt="logo cerrar"
-              />
-              <img
-                onClick={() => {""}}
-                src="/images/icons/edit.png"
-                alt="logo editar"
-              />
-            </div>
-          </figure>
-        ))}
-      </div>
-
       <div className="diaryDetail__save">
-        <button className="login__button">Guardar en PDF</button>
+        <button className="diaryDetail__button">Guardar en PDF</button>
         <a href="/">Ir a informe siguiente</a>
       </div>
     </div>
