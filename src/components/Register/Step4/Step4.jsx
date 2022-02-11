@@ -43,6 +43,12 @@ const Step4 = ({ setStep }) => {
 
   return (
     <div className="confirm">
+      <nav>
+      <a onClick={()=>setStep(3)}>
+        <img src="../../../images/icons/volver.png" />
+      </a>
+      <p>paso 3 de 4</p>
+      </nav>
       <div className="confirm__hero">
         <h3>Confirma tu selección.</h3>
         <p>

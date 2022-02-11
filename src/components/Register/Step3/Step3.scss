@@ -5,6 +5,20 @@
   height: 100%;
   overflow: hidden;
 
+  nav{
+    margin-right: 135px;
+    display: flex;
+    margin-top: 5px;
+    width:210px;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 900;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;

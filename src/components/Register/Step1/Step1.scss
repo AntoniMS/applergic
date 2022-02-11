@@ -1,38 +1,46 @@
-
 .register {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
   width: 100%;
-
+  nav {
+    margin-right: 135px;
+    display: flex;
+    margin-top: 5px;
+    width:210px;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 900;
+    }
+  }
 
   h3 {
     margin: 0;
     text-align: center;
     font-size: 21px;
   }
-  h5{
+  h5 {
     margin: 0 auto;
     text-align: center;
     font-size: 15px;
     font-weight: bolder;
   }
 
-
   &__errors {
     text-align: center;
     font-size: 12px;
     font-weight: 500;
     color: rgb(221, 60, 92);
-
   }
 
   &__form {
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
 
   &__photo {
@@ -48,12 +56,11 @@
     }
 
     img {
-      margin:34px;
+      margin: 34px;
       width: 80px;
       border: 2px solid rgb(64, 192, 224);
-    border-radius: 50%;
+      border-radius: 50%;
     }
-    
   }
 
   &__label {
@@ -91,9 +98,8 @@
     border-radius: 7px;
     border: none;
 
-    &:disabled{
+    &:disabled {
       background-color: silver;
     }
   }
-
 }

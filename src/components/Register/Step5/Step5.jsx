@@ -5,8 +5,14 @@ import "./Step5.scss";
 const Step5 = () => {
   return (
     <div className="ok">
+      <nav>
+      <Link to="/">
+        <img src="../../../images/icons/volver.png" />
+      </Link>
+      <p>Paso 4 de 4</p>
+      </nav>
       <div className="ok__container">
-        <img src="/images/loginregister/ok.png" alt="mano ok" />
+        <img className="okletsgo" src="/images/loginregister/ok.png" alt="mano ok" />
 
         <div className="ok__info">
           <h3>Hemos terminado, ya puedes escanear tu primer producto.</h3>

@@ -1,7 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./Step1.scss";
-import {RegisterContext} from "../../../shared/contexts/RegisterContext";
+import { RegisterContext } from "../../../shared/contexts/RegisterContext";
+import { Link } from "react-router-dom";
 
 const Step1 = ({ setStep }) => {
   const { user } = React.useContext(RegisterContext);
@@ -13,7 +14,7 @@ const Step1 = ({ setStep }) => {
 
   const onSubmit = (formData) => {
     user.name = formData.name;
-    if(formData.photo.length > 0) user.photo = formData.photo[0];
+    if (formData.photo.length > 0) user.photo = formData.photo[0];
     user.email = formData.email;
     user.password = formData.password;
     user.phone = formData.phone;
@@ -22,17 +23,19 @@ const Step1 = ({ setStep }) => {
   };
 
   return (
-    <div>
+    <div className="register">
       <nav>
-        <h5> ⬅ volver</h5> <h5>1 de 4</h5>
+      <Link to="/login">
+        <img src="../../../images/icons/volver.png" />
+      </Link>
+      <p>Paso 1 de 4</p>
       </nav>
       <div>
         <h3>Dinos quien eres.</h3>
         <form onSubmit={handleSubmit(onSubmit)} className="register__form">
           <label className="register__photo">
-
-          <img src="/images/loginregister/cam3.png" alt="camara" />
-           {/*  <h3>Subir Foto</h3> */}
+            <img src="/images/loginregister/cam3.png" alt="camara" />
+            {/*  <h3>Subir Foto</h3> */}
 
             <input
               type="file"
@@ -59,7 +62,9 @@ const Step1 = ({ setStep }) => {
             {errors.name ? (
               <>
                 {errors.name.type === "required" && (
-                  <span className="register__errors">{errors.name.message}</span>
+                  <span className="register__errors">
+                    {errors.name.message}
+                  </span>
                 )}
               </>
             ) : null}
@@ -84,10 +89,14 @@ const Step1 = ({ setStep }) => {
               {errors.email ? (
                 <>
                   {errors.email.type === "required" && (
-                    <span className="register__errors">{errors.email.message}</span>
+                    <span className="register__errors">
+                      {errors.email.message}
+                    </span>
                   )}
                   {errors.email.type === "pattern" && (
-                    <span className="register__errors">{errors.email.message}</span>
+                    <span className="register__errors">
+                      {errors.email.message}
+                    </span>
                   )}
                 </>
               ) : null}
@@ -111,10 +120,14 @@ const Step1 = ({ setStep }) => {
               {errors.phone ? (
                 <>
                   {errors.phone.type === "required" && (
-                    <span className="register__errors">{errors.phone.message}</span>
+                    <span className="register__errors">
+                      {errors.phone.message}
+                    </span>
                   )}
                   {errors.phone.type === "pattern" && (
-                    <span className="register__errors">{errors.phone.message}</span>
+                    <span className="register__errors">
+                      {errors.phone.message}
+                    </span>
                   )}
                 </>
               ) : null}
@@ -131,7 +144,8 @@ const Step1 = ({ setStep }) => {
                 {...register("password", {
                   required: "Introduce una contraseña, por favor.",
                   pattern: {
-                    value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
                     message:
                       "Debe contener mínimo 8 carácteres, 1 mayúscula, 1 minúscula, 1 símbolo y 1 número.",
                   },
@@ -153,7 +167,11 @@ const Step1 = ({ setStep }) => {
               ) : null}
             </label>
 
-            <button  disabled={!isValid} className="register__button" type="submit">
+            <button
+              disabled={!isValid}
+              className="register__button"
+              type="submit"
+            >
               Guardar perfil
             </button>
           </div>
