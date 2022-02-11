@@ -1,7 +1,7 @@
 import "./Step2.scss";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
+import {RegisterContext} from "../../../shared/contexts/RegisterContext";
 
 const Step2 = ({ setStep }) => {
   const { user } = React.useContext(RegisterContext);
