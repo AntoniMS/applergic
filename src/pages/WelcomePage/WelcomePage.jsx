@@ -8,7 +8,7 @@ import Intro from "../../components/Welcome/Intro";
 
 
 const WelcomePage = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
 
 
   
