@@ -3,31 +3,60 @@ import { Link } from "react-router-dom";
 import "./ScanPage.scss";
 import  Barcode  from "../../components/Scan/Barcode/Barcode";
 import QrScan from "../../components/Scan/QrScan/QrScan";
-import axios from "axios";
-import CryptoJS from 'crypto-js';
+import { API } from "../../shared/services/api";
 
 
 const ScanPage = () => {
+  const [search, setSearch] = React.useState({})
+  const [product, setProduct] = React.useState({})
   const [data, setData] = React.useState("Not Found");
   const [option, setOption] = React.useState("barcode");
   let barcode_class = (option === "barcode") ? "active" : "";
   let qr_class = (option === "qr") ? "active" : "";
 
   const changeData = (code)=>{
+    console.log("enter", code);
     if(code !== data){
+      console.log("change", code);
       setData(code);
-      searchCode(code);
+      findCode(code);
+      //searchCode(code);
     }
   }
 
-  const searchCode = (code) => {
-    var hash = CryptoJS.HmacSHA1(code,process.env.DG_API_SECRET,true).toString(CryptoJS.enc.Base64);
-    axios(process.env.REACT_APP_BACK_URL+"?upcCode="+code+"&language=es&app_key="+process.env.DG_API_KEY+"&signature="+hash).then(
-      (res) => {
-        console.log(res.data)
-      }
-    );
+  const findCode = (code) => {
+    API.get("products/barcode/"+code).then((res) => {
+      setSearch(res.data);
+      saveSearch(res.data._id);
+    });
   }
+
+  const saveSearch = (id) => {
+    let fd = {product: id}
+    API.post("search", fd).then((res) => {
+      const user = JSON.parse(localStorage.getItem('user'))
+      user.searchs.push(res.data._id);
+      localStorage.setItem("user", JSON.stringify(user));
+    });
+  }
+
+  // const searchCode = (code) => {
+  //   console.log("search", code);
+  //   var hash = CryptoJS.HmacSHA1(code,"Mf37C9t4s7To5Gb1",true);
+  //   console.log(hash)
+
+  //   axios({
+  //     method: 'get',
+  //     url: "https://www.digit-eyes.com/gtin/v2_0/?upcCode="+code+"&language=es&app_key=/zkyD/oBFDst&signature="+hash.toString(CryptoJS.enc.Base64),
+  //     responseType: 'stream',
+  //     headers: {'Accept': 'application/json',
+  //   'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'}
+  //   }).then(
+  //     (res) => {
+  //       console.log(res.data)
+  //     }
+  //   );
+  // }
 
   return (
     <div className="barcode">
@@ -45,7 +74,7 @@ const ScanPage = () => {
 
       <div className="barcode__cam">
         {
-          (option === "barcode") ? <Barcode changeData={changeData}/>:<QrScan changeData={changeData}/>
+          (option === "barcode" && data === "Not Found") ? <Barcode changeData={changeData}/>:<QrScan changeData={changeData}/>
           
         }
           

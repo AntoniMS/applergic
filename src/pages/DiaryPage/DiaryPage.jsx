@@ -26,5 +26,6 @@ const DiaryPage = () => {
       <h2>Generar informe</h2>
     </div>
   )
-  };
+};
+
 export default DiaryPage;
