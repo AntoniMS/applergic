@@ -4,10 +4,12 @@ import "./ScanPage.scss";
 import  Barcode  from "../../components/Scan/Barcode/Barcode";
 import QrScan from "../../components/Scan/QrScan/QrScan";
 import { API } from "../../shared/services/api";
+import {SearchContext} from "../../shared/contexts/SearchContext"; 
+import ScanDetailPage from './ScanDetailPage/ScanDetailPage';
 
 
 const ScanPage = () => {
-  const [search, setSearch] = React.useState({})
+  const [search, setSearch] = React.useState(null)
   const [product, setProduct] = React.useState({})
   const [data, setData] = React.useState("Not Found");
   const [option, setOption] = React.useState("barcode");
@@ -26,7 +28,8 @@ const ScanPage = () => {
 
   const findCode = (code) => {
     API.get("products/barcode/"+code).then((res) => {
-      setSearch(res.data);
+      console.log(res.data);
+      setProduct(res.data);
       saveSearch(res.data._id);
     });
   }
@@ -34,9 +37,10 @@ const ScanPage = () => {
   const saveSearch = (id) => {
     let fd = {product: id}
     API.post("search", fd).then((res) => {
-      const user = JSON.parse(localStorage.getItem('user'))
+      const user = JSON.parse(localStorage.getItem('user'));
       user.searchs.push(res.data._id);
       localStorage.setItem("user", JSON.stringify(user));
+      setSearch(res.data);
     });
   }
 
@@ -59,6 +63,9 @@ const ScanPage = () => {
   // }
 
   return (
+    <SearchContext.Provider value={{product, setProduct, search, setSearch}}>
+    {console.log(search)}
+    { search === null ? (
     <div className="barcode">
       <div className="barcode__close">
         <Link to="/">
@@ -98,6 +105,10 @@ const ScanPage = () => {
         </div>
       </div>
     </div>
+    ): <ScanDetailPage/>
+    }
+    </SearchContext.Provider>
+
   );
 };
 

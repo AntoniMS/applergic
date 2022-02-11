@@ -1,6 +1,6 @@
 import "./Step4.scss";
 import React, { useContext } from "react";
-import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
+import {RegisterContext} from "../../../shared/contexts/RegisterContext";
 import { API } from "../../../shared/services/api";
 import { JwtContext } from "../../../shared/contexts/JwtContext";
 
@@ -17,7 +17,9 @@ const Step4 = ({ setStep }) => {
       }else{
         if(key === "allergens"){
           for (let allergenKey in user[key]){
-            fd.set(key[allergenKey], user[key][allergenKey]);
+            console.log(allergenKey);
+            console.log(key[allergenKey])
+            fd.set(`allergens[${allergenKey}]`, user[key][allergenKey]);
           }
         }else{
           fd.set(key, user[key]);

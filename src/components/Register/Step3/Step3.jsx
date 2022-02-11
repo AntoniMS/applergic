@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { API } from "../../../shared/services/api";
 import "./Step3.scss";
 import Step3Button from "./Step3Button/Step3Button";
-import { RegisterContext } from "../../../pages/RegisterPage/RegisterPage";
+import {RegisterContext} from "../../../shared/contexts/RegisterContext";
 import { useForm } from "react-hook-form";
 
 const Step3 = ({ setStep }) => {
