@@ -30,7 +30,7 @@ function App() {
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="scan" element={<ScanPage />} />  
           <Route path="scanPage" element={<ScanDetailPage />} />            
-          <Route path="byePage" element={<ByePage />} />            
+          <Route path="bye" element={<ByePage />} />            
         </Routes>
       </Router>
     </div>

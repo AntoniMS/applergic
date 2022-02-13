@@ -1,0 +1,27 @@
+
+.rating {
+  
+    & svg {
+        color: #c7c7c7;
+        cursor: pointer;
+        &.clickedstar {
+            color: rgb(212, 180, 0);
+            }
+    }
+  
+    & div {
+        width: 100px;
+    }
+  
+    & div:hover svg {
+        color: rgb(212, 180, 0);
+        
+    }
+  
+    & svg:hover~svg {
+        color: #c7c7c7;
+        
+    }
+    
+  }
+
