@@ -59,7 +59,7 @@
 
   .inform {
     width: 375px;
-    height: 108px;
+    height: auto;
     display: flex;
     align-items: center;
     text-align: left;
@@ -70,9 +70,16 @@
       border: 4px solid rgb(255, 188, 111);
       border-radius: 10px;
       margin-left: 30px;
+      &.No{
+        border-color:#83d8ad;
+      }
+      &.Yes{
+        border-color:#fb92aa;
+      }
     }
     &__box {
       padding-left: 10px;
+      width:210px;
     }
     &__buttons {
       display: flex;

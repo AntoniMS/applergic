@@ -1,26 +1,31 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./DiaryPage.scss";
+import { API } from "../../shared/services/api";
 
-const products = [
-  {
-    name: "Special K",
-    image:
-      "https://images.kglobalservices.com/www.kelloggs.es/es_es/product/product_4508681/prod_img-198168_prod_img-198168.png",
-    ingredients: ["Arroz", "Trigo", "Cebada", "Azúcar"],
-    notes: "Copos tostados para desayunar.",
-  },
-  {
-    name: "Smacks",
-    image:
-      "https://images.kglobalservices.com/www.kelloggs.es/es_es/product/product_4508675/kicproductimage-124836_kicproductimage-124836.png",
-    ingredients: ["Trigo", "Miel", "Azúcar"],
-    notes: "Trigo inflado con azúcar y miel.",
-  },
-];
+
+
 
 const DiaryPage = () => {
-  return (
+  const [searchs, setSearchs] = useState([]);
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const getUserSearchs = () =>{
+    const userSearchs = [];
+    user.searchs.map((search) => {
+      console.log(search);
+      API.get(`search/${search}`).then((res) => {
+        userSearchs.push(res.data)
+        setSearchs([...userSearchs]);        
+      });
+    })
+  }
+
+  useEffect(() => {
+    getUserSearchs();    
+  },[])
+
+  return (    
     <div className="diaryPage">
       <div className="diaryPage__icons">
         <Link to="/">
@@ -43,13 +48,14 @@ const DiaryPage = () => {
       </div>
 
       <div className="diaryPage__inform">
-        {products.map((product, index) => (
-          <figure className="inform" key={index}>
-            <img src={product.image} className="inform__img"></img>
+      <>
+        {searchs.map((search) => (
+          <figure className="inform" key={search._id}>
+            <img src={search.product.photo} className={"inform__img "+search.isAlergic} alt={search.product.name}></img>
             <div className="inform__box">
               <p className="inform__info">09-02-2022</p>
-              <figcaption className="inform__info">{product.name}</figcaption>
-              <p className="inform__info">Notas: {product.notes}</p>
+              <figcaption className="inform__info">{search.product.name}</figcaption>
+              <p className="inform__info">Notas: {search.notes}</p>
             </div>
             <div className="inform__buttons">
               <img
@@ -69,6 +75,9 @@ const DiaryPage = () => {
             </div>
           </figure>
         ))}
+
+      {console.log(searchs)}
+      </>
       </div>
 
       <button className="diaryPage__button" type="submit">
@@ -76,6 +85,7 @@ const DiaryPage = () => {
       </button>
       <a href="/DiaryDetail">Generar informe</a>
     </div>
+    
   );
 };
 

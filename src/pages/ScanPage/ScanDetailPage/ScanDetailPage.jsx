@@ -24,13 +24,22 @@ const ScanDetailPage = () => {
     }
 
     const isAllergicProduct = (allergensList) => {
-        let isAlergic = false;
+        let isAlergic = "Maybe";
         const allergicProducts = allergensList.filter((item) => 
             (product.ingredients.includes(item.name.toLowerCase() ) || product.allergens.includes(item.name.toLowerCase() ))
         );
-        isAlergic = allergicProducts.length > 0 && true
+        isAlergic = allergicProducts.length > 0 ? "Yes" : (product.ingredients === "" && product.allergens=== "") ? "Maybe" : "No";
         setIsAlergic(isAlergic);
-        setAllProducts(allergicProducts)
+        setAllProducts(allergicProducts);
+        saveSearchAlergic(isAlergic);
+    }
+
+    const saveSearchAlergic = (isAlergic) => {
+        let fd = {isAlergic: isAlergic}
+        API.put(`search/${search._id}`, fd).then((res) => {
+            console.log(res.data.new);
+            setSearch(res.data.new);
+        });
     }
 
     useEffect(() => {
@@ -49,9 +58,9 @@ const ScanDetailPage = () => {
                 </Link>
             </div>
             <h3>Aqui tienes el<br></br>resultado.</h3>
-            {isAlergic ? 
+            {isAlergic === "Si" ? 
             <p>Este producto NO es apto<br></br>para ti, contiene {allergicProducts.map((item) => item.name).join(", ")}.</p> 
-            : (product.ingredients === "" && product.allergens === "")
+            : isAlergic === "Maybe"
             ? 
             <p>Lo sentimos, no hay datos suficientes para poder valorar este producto</p>
             :
@@ -59,9 +68,9 @@ const ScanDetailPage = () => {
             }
             
             <div className="scan__wraper">
-            {isAlergic ? 
+            {isAlergic === "Si" ? 
                 <ScanResult result="unfit" photo={product.photo} /> 
-            : (product.ingredients === "" && product.allergens === "")
+            : isAlergic === "Maybe"
             ? 
             <ScanResult result="unknown" photo={product.photo}/>
             :
