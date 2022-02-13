@@ -1,14 +1,12 @@
-.Intro{ 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; 
-    align-content: center;
-    align-items: center;
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 667px;
+  width: 100%;
 
-img{
-    display: block;
-    margin: 30px auto;
-    
+  img {
+    padding-top: 20px;
+  }
 }
-}
-

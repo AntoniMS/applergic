@@ -2,6 +2,7 @@ import "./Step2.scss";
 import React from "react";
 import { useForm } from "react-hook-form";
 import {RegisterContext} from "../../../shared/contexts/RegisterContext";
+import { Link } from "react-router-dom";
 
 const Step2 = ({ setStep }) => {
   const { user } = React.useContext(RegisterContext);
@@ -22,10 +23,12 @@ const Step2 = ({ setStep }) => {
 
 
   return (
-      <div className="contact__page">
-        <p onClick={()=>setStep(1)}> ⬅ volver</p> 
-      <nav>
-      <p>2 de 4</p>
+      <div className="contact__page"> 
+        <nav>
+      <a onClick={()=>setStep(1)}>
+        <img src="../../../images/icons/volver.png" />
+      </a>
+      <p>Paso 2 de 4</p>
       </nav>
 
       <div className="contact__hero">

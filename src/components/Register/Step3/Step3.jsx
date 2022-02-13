@@ -72,9 +72,11 @@ const Step3 = ({ setStep }) => {
 
   return (
     <div className="allergen">
-      <nav>
-      <h5 onClick={()=>setStep(2)}> ⬅ volver</h5>
-        <h5>3 de 4</h5>
+         <nav>
+      <a onClick={()=>setStep(2)}>
+        <img src="../../../images/icons/volver.png" />
+      </a>
+      <p>paso 3 de 4</p>
       </nav>
       <div className="allergen__hero">
         <h3>Ahora selecciona tus alergias e intolerancias.</h3>
