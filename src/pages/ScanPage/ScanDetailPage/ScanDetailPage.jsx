@@ -7,7 +7,9 @@ import { API } from "../../../shared/services/api";
 
 const ScanDetailPage = () => {
     const { product, setProduct, search, setSearch } = useContext(SearchContext);
-    const [isAlergic, setIsAlergic] = useState(false);
+    const [isAlergic, setIsAlergic] = useState('');
+    const [isFavorite, setIsFavorite] = useState(false);
+    const [isDiary, setIsDiary] = useState(false);
     const [allergicProducts, setAllProducts] = useState([]);
 
     const user = JSON.parse(localStorage.getItem('user'));
@@ -42,6 +44,24 @@ const ScanDetailPage = () => {
         });
     }
 
+    const saveSearchFavorite = (boolean) => {
+        let fd = {favorite: boolean}
+        API.put(`search/${search._id}`, fd).then((res) => {
+            console.log(res.data.new);
+            setSearch(res.data.new);
+            setIsFavorite(boolean);
+        });
+    }
+
+    const saveSearchDiary = (boolean) => {
+        let fd = {diary: boolean}
+        API.put(`search/${search._id}`, fd).then((res) => {
+            console.log(res.data.new);
+            setSearch(res.data.new);
+            setIsDiary(boolean);
+        });
+    }
+
     useEffect(() => {
         searchUserAllergens();
     },[])
@@ -58,7 +78,7 @@ const ScanDetailPage = () => {
                 </Link>
             </div>
             <h3>Aqui tienes el<br></br>resultado.</h3>
-            {isAlergic === "Si" ? 
+            {isAlergic === "Yes" ? 
             <p>Este producto NO es apto<br></br>para ti, contiene {allergicProducts.map((item) => item.name).join(", ")}.</p> 
             : isAlergic === "Maybe"
             ? 
@@ -68,7 +88,8 @@ const ScanDetailPage = () => {
             }
             
             <div className="scan__wraper">
-            {isAlergic === "Si" ? 
+            {console.log(isAlergic)}
+            {isAlergic === "Yes" ? 
                 <ScanResult result="unfit" photo={product.photo} /> 
             : isAlergic === "Maybe"
             ? 
@@ -78,11 +99,21 @@ const ScanDetailPage = () => {
             }
                 
                 <div className="scan__wraper__favorites">
+                    {
+                        isFavorite ? 
+                            <img src="../../../images/scan/favorito/favorito_ok.png" alt="star" onClick={() => {saveSearchFavorite(false)}}/>
+                        :
+                            <img src="../../../images/scan/favorito/favorito.png" alt="star" onClick={() => {saveSearchFavorite(true)}}/>
+                    }
+                    {
+                        isDiary ? 
+                            <img src="../../../images/scan/diario/diarioAzul.png" alt="diary" onClick={() => {saveSearchDiary(false)}}/>
+                        : 
+                            <img src="../../../images/scan/diario/diario.png" alt="diary" onClick={() => {saveSearchDiary(true)}}/>
+                    }
                     
-                    <img src="../../../images/scan/favorito/favorito.png" alt="star"/>
-                    <Link to="/diary">
-                        <img src="../../../images/scan/diario/diario.png" alt="diary"/>
-                    </Link>
+                    
+                    
                     <Link to="/">
                         <img src="../../../images/scan/red/red.png" alt="red"/>
                     </Link>
