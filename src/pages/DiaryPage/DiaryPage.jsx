@@ -49,7 +49,7 @@ const DiaryPage = () => {
 
       <div className="diaryPage__inform">
       <>
-        {searchs.map((search) => (
+        {searchs.filter((search) => search.diary === true).map((search) => (
           <figure className="inform" key={search._id}>
             <img src={search.product.photo} className={"inform__img "+search.isAlergic} alt={search.product.name}></img>
             <div className="inform__box">

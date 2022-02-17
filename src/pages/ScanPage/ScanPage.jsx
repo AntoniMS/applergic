@@ -40,7 +40,24 @@ const ScanPage = () => {
       const user = JSON.parse(localStorage.getItem('user'));
       user.searchs.push(res.data._id);
       localStorage.setItem("user", JSON.stringify(user));
+      saveUserAllergens();
       setSearch(res.data);
+    });
+  }
+
+  const saveUserAllergens = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    
+    let searchs = [];
+    for (let key in user.searchs) {
+      console.log(`searchs[${key}]`, user.searchs[key])
+      searchs.push(user.searchs[key]);    
+    }
+    let fd = {searchs: searchs};
+    console.log(fd);
+    
+    API.put("users/addSearch/"+user._id, fd).then((res) => {
+      console.log(res.data);
     });
   }
 
