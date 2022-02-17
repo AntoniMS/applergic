@@ -8,6 +8,7 @@ import DiaryPage from "./pages/DiaryPage/DiaryPage";
 import DiaryDetailPage from "./pages/DiaryPage/DiaryDetailPage/DiaryDetailPage";
 import ScanPage from "./pages/ScanPage/ScanPage";
 import WelcomePage from "./pages/WelcomePage/WelcomePage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
 import ByePage from "./pages/ByePage/ByePage";
 import { JwtContext } from './shared/contexts/JwtContext';
@@ -26,7 +27,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />    
           <Route path="diary" element={<DiaryPage />} />   
-          <Route path="diaryDetail" element={<DiaryDetailPage />} />              
+          <Route path="diaryDetail" element={<DiaryDetailPage />} />
+          <Route path="favs" element={<FavoritePage />} />      
           <Route path="welcome" element={<WelcomePage />} />
           <Route path="scan" element={<ScanPage />} />  
           <Route path="scanPage" element={<ScanDetailPage />} />            
