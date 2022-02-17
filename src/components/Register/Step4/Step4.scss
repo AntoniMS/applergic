@@ -43,10 +43,10 @@
 
   &__allergens {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-items: center;
-    width: 100%;
+    width: 375px;
   }
   &__options {
     display: flex;

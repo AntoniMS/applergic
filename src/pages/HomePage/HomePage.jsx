@@ -22,7 +22,7 @@ const HomePage = () => {
       label: "Favorito",
       icon: "pi pi-fw pi-star",
       command: () => {
-        navigate("/register");
+        navigate("/favs");
       },
     },
     {
@@ -111,7 +111,7 @@ const HomePage = () => {
           <img src="/images/home/homeazul@2x.png" alt="Logo home" />
         </Link>
 
-        <Link to="/login">
+        <Link to="/favs">
           <img src="/images/home/favorito@2x.png" alt="Logo favoritos" />
         </Link>
 
