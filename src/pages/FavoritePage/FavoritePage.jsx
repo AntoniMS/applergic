@@ -74,7 +74,7 @@ const FavoritePage = () => {
           </figure>
         ))}
 
-      {console.log(favs)}
+    
       </>
       </div>
 
