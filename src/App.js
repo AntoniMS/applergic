@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
@@ -17,21 +17,33 @@ import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
 
+  const isTokenExpiry = () => {
+    const tokenUser = localStorage.getItem('expiredToken')
+
+    if ( new Date().getTime() > tokenUser) {
+      localStorage.removeItem('token');
+    }
+    
+  }
+
+  useEffect(() => {
+    isTokenExpiry();   
+  },[])
 
   return (
     <JwtContext.Provider value={{ jwt, setJwt }}>
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />    
-          <Route path="diary" element={<DiaryPage />} />   
-          <Route path="diaryDetail" element={<DiaryDetailPage />} />
-          <Route path="favs" element={<FavoritePage />} />      
+          <Route path="diary" element={<RequireAuth><DiaryPage /></RequireAuth>} />   
+          <Route path="diaryDetail" element={<RequireAuth><DiaryDetailPage /></RequireAuth>} />
+          <Route path="favs" element={<RequireAuth><FavoritePage /></RequireAuth>} />      
           <Route path="welcome" element={<WelcomePage />} />
-          <Route path="scan" element={<ScanPage />} />  
-          <Route path="scanPage" element={<ScanDetailPage />} />            
+          <Route path="scan" element={<RequireAuth><ScanPage /></RequireAuth>} />  
+          <Route path="scanPage" element={<RequireAuth><ScanDetailPage /></RequireAuth>} />            
           <Route path="bye" element={<ByePage />} />            
         </Routes>
       </Router>
