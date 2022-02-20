@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./DiaryPage.scss";
 import { API } from "../../shared/services/api";
+import "./DiaryPage.scss";
 
 
 
@@ -53,8 +53,8 @@ const DiaryPage = () => {
           <figure className="inform" key={search._id}>
             <img src={search.product.photo} className={"inform__img "+search.isAlergic} alt={search.product.name}></img>
             <div className="inform__box">
-              <p className="inform__info">09-02-2022</p>
-              <figcaption className="inform__info">{search.product.name}</figcaption>
+            <p className="inform__info">{search.createdAt.substr(0, 10)}</p>
+              <h6 className="inform__info">{search.product.name}</h6>
               <p className="inform__info">Notas: {search.notes}</p>
             </div>
             <div className="inform__buttons">
