@@ -107,14 +107,13 @@ const ScanPage = () => {
       </div>
 
       <div className="barcode__buttons">
-        <div>
-        
+        <div className="barcode__option">
         <button className={"barcode__btn "+barcode_class} onClick={() => setOption("barcode")}>
           <img src="./images/icons/barcode2@2x.png" alt="codebar img" />
         </button>
         <p>Código de barras</p>
         </div>
-        <div>
+        <div className="barcode__option">
         <button className={"barcode__btn "+qr_class} onClick={() => setOption("qr")}>
           <img src="./images/icons/qr@2x.png" alt="Qr img" />
         </button>

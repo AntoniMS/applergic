@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./FavoritePage.scss";
 import { API } from "../../shared/services/api";
+import "./FavoritePage.scss";
 
 
 const FavoritePage = () => {
@@ -47,12 +47,12 @@ const FavoritePage = () => {
 
       <div className="favsPage__inform">
       <>
-        {searchs.filter((search) => search.diary === true).map((search) => (
+        {searchs.filter((search) => search.favorite === true).map((search) => (
           <figure className="favInfo" key={search._id}>
             <img src={search.product.photo} className={"favInfo__img "+search.isAlergic} alt={search.product.name}></img>
             <div className="favInfo__box">
-              <p className="favInfo__info">09-02-2022</p>
-              <figcaption className="favInfo__info">{search.product.name}</figcaption>
+              <p className="favInfo__info">{search.createdAt.substr(0, 10)}</p>
+              <h6 className="favInfo__info">{search.product.name}</h6>
               <p className="favInfo__info">Notas: {search.notes}</p>
             </div>
             <div className="favInfo__buttons">

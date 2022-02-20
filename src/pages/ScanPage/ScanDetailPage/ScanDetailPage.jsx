@@ -67,7 +67,8 @@ const ScanDetailPage = () => {
     },[])
 
     return (
-        
+
+    <div className="scanDetail">
         <div className="scan">
             <div className="scan__turn-close">
                 <Link className="scan__turn-close__turn" to="/scan">
@@ -77,7 +78,7 @@ const ScanDetailPage = () => {
                     <img src="/images/icons/close.png" alt="close" />
                 </Link>
             </div>
-            <h3>Aqui tienes el<br></br>resultado.</h3>
+            <h3>Aquí tienes el<br></br>resultado.</h3>
             {isAlergic === "Yes" ? 
             <p>Este producto NO es apto<br></br>para ti, contiene {allergicProducts.map((item) => item.name).join(", ")}.</p> 
             : isAlergic === "Maybe"
@@ -122,8 +123,8 @@ const ScanDetailPage = () => {
             <div className="scan__info">
                 <h3>{product.name}</h3>
                 <h4>{product.brand}</h4>
-                <p>{product.ingredients}</p>
-                <input></input>
+                <p> <b>Ingredientes:</b> {product.ingredients}</p>
+                
                 <div className="scan__btn">
                     <Link className="scan__link" to="/scan">
                     <h4> Escanea otro producto</h4>
@@ -131,6 +132,7 @@ const ScanDetailPage = () => {
                 </div>
             </div>
         </div>
+    </div>
     ); 
 };
 

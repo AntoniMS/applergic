@@ -66,8 +66,10 @@
       border: 1px solid silver;
   
       &__img {
+        width: 70px;
         height: 70px;
-        border: 4px solid rgb(255, 188, 111);
+        object-fit: contain;
+        border: 4px solid #ffbc6f;
         border-radius: 10px;
         margin-left: 30px;
         &.No{
