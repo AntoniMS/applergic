@@ -35,7 +35,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />    
           <Route path="diary" element={<RequireAuth><DiaryPage /></RequireAuth>} />   
