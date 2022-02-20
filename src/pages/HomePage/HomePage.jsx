@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu } from "primereact/menu";
 import { Button } from "primereact/button";
+import SocialMedia from "../../components/SocialMedia/SocialMedia";
 
 const HomePage = () => {
   const menu = useRef(null);
@@ -118,10 +119,10 @@ const HomePage = () => {
         <Link to="/diary">
           <img src="/images/home/diario@2x.png" alt="Logo diario" />
         </Link>
-
-        <Link to="/register">
-          <img src="/images/home/red@2x.png" alt="Logo redes" />
-        </Link>
+          <SocialMedia/>
+        
+      
+        
       </div>
     </div>
   );
