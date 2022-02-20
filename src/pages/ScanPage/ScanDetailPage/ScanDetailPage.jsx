@@ -71,7 +71,7 @@ const ScanDetailPage = () => {
     <div className="scanDetail">
         <div className="scan">
             <div className="scan__turn-close">
-                <Link className="scan__turn-close__turn" to="/scan">
+                <Link className="scan__turn-close__turn" to="/scan" onClick={() => setSearch(null)}>
                     <img src="../../../images/icons/volver.png" alt="Volver" />
                 </Link>
                 <Link className="close" to="/">
@@ -126,7 +126,7 @@ const ScanDetailPage = () => {
                 <p> <b>Ingredientes:</b> {product.ingredients}</p>
                 
                 <div className="scan__btn">
-                    <Link className="scan__link" to="/scan">
+                    <Link className="scan__link" to="/scan" onClick={() => setSearch(null)}>
                     <h4> Escanea otro producto</h4>
                     </Link>
                 </div>

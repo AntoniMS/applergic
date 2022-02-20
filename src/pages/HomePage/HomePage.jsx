@@ -1,11 +1,13 @@
 import "./HomePage.scss";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu } from "primereact/menu";
 import { Button } from "primereact/button";
 import SocialMedia from "../../components/SocialMedia/SocialMedia";
+import { JwtContext } from "../../shared/contexts/JwtContext";
 
 const HomePage = () => {
+  const { setJwt } = useContext(JwtContext);
   const menu = useRef(null);
   const navigate = useNavigate();
 
@@ -58,7 +60,11 @@ const HomePage = () => {
       label: "Salir",
       icon: "pi pi-fw pi-sign-out",
       command: () => {
-        navigate("/");
+        setJwt(null);
+        localStorage.removeItem("token");
+        localStorage.removeItem('user');
+        localStorage.removeItem('expiredToken');
+        navigate("/bye");
       },
     },
   ];
