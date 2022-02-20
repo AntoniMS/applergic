@@ -3,6 +3,7 @@
   
     & svg {
         color: #c7c7c7;
+        font-size: 25px;
         cursor: pointer;
         &.clickedstar {
             color: rgb(212, 180, 0);
@@ -10,7 +11,8 @@
     }
   
     & div {
-        width: 100px;
+        width: 125px;
+        margin-top:50px;
     }
   
     & div:hover svg {

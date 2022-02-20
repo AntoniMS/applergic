@@ -16,6 +16,7 @@ const ByePage = () => {
         <h3>¡Gracias por usar Applergic!</h3>
         <h3>Por favor, evalua tu<br></br> experiencia.</h3>
         <NewPost/>
+      
     </div>
   );
 };
