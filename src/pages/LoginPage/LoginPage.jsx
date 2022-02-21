@@ -26,7 +26,7 @@ export default function LoginPage() {
         localStorage.setItem("expiredToken", new Date().getTime() + 86400000);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setJwt(res.data.token);
-        navigate("/");
+        navigate("/welcome");
       }
     });
   };
