@@ -33,6 +33,7 @@ const DiaryPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({ criteriaMode: "all", mode: "onBlur" });
 
@@ -40,6 +41,9 @@ const DiaryPage = () => {
     const notes = searchUpdate.notes;
     notes.push(formData.notes)
     let fd = { notes: notes };
+    reset({
+      notes: ""
+    })
     API.put(`search/${searchUpdate._id}`, fd).then((res) => {
       console.log(res.data.new);
       setSearchUpdate(null);
@@ -140,7 +144,7 @@ const DiaryPage = () => {
                 <p>
                   <b>Ingredientes:</b> {searchUpdate.product.ingredients}
                 </p>
-                <form onSubmit={handleSubmit(updateNotes)} className="register__form">
+                <form onSubmit={handleSubmit(updateNotes)} className="notes__form">
                 <div className="note_info">
                   {searchUpdate.notes.length > 0 &&
                   <p>
@@ -148,7 +152,7 @@ const DiaryPage = () => {
                   </p>
                   }
                   <label  htmlFor="notes">Introduce nueva nota:</label>
-                  <input type="text" name="notes" {...register("notes", {
+                  <input id="notes" type="text" name="notes" {...register("notes", {
                   required: "Añade tu nota, por favor.",
                 })}/>
                 {errors.notes ? (
@@ -167,6 +171,7 @@ const DiaryPage = () => {
                     <h4>Guardar</h4>
                   </button>
                 </div>
+                  <a href="/">Volver</a>
                 </form>
               </div>
             </div>
