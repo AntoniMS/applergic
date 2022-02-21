@@ -2,9 +2,6 @@ import React from "react";
 import "./Step1.scss";
 import { Link } from "react-router-dom";
 
-//welcome 0 al pasar por primera vez o alguien le de a saltar, crear una variable en localStorage (Intro: true) y si
-// y si es true que vaya directamente a home.
-
 const Step1 = ({ setStep }) => {
   return (
     <div className="welcome">
@@ -21,9 +18,27 @@ const Step1 = ({ setStep }) => {
 
         <div className="welcome__dots">
           <p className="welcome__dots__blue">&bull;</p>
-          <a>&bull;</a>
-          <a>&bull;</a>
-          <a>&bull;</a>
+          <a
+            onClick={() => {
+              setStep(2);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(3);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(4);
+            }}
+          >
+            &bull;
+          </a>
         </div>
         <div className="welcome__buttons">
           <Link className="welcome__link" to="/login">

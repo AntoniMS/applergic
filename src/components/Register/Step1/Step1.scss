@@ -47,8 +47,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     cursor: pointer;
+    margin: 34px;
+    height: 80px;
+    width: 80px;
+    border: 2px solid rgb(64, 192, 224);
+    border-radius: 50%;
+    background-image: url("../../../../public/images/loginregister/cam3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     input {
       visibility: hidden;
       height: 0;
@@ -58,8 +67,7 @@
     img {
       margin: 34px;
       width: 80px;
-      border: 2px solid rgb(64, 192, 224);
-      border-radius: 50%;
+  
     }
   }
 
