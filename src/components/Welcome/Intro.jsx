@@ -19,7 +19,7 @@ const Intro = ({ setStep }) => {
       <img src="/images/welcome/group.png" alt="logoApplergicFigurasGiro" />
       </div>
       <div onClick={()=>{
-            if(jwt !== null){
+            if(jwt !== null || localStorage.getItem('intros', true)){
               navigate("/")
             }else{
               setStep(1);

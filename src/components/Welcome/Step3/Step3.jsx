@@ -16,10 +16,29 @@ const Step3 = ({ setStep }) => {
           </p>
         </div>
         <div className="welcome__dots">
-          <a>&bull;</a>
-          <a>&bull;</a>
+          <a
+            onClick={() => {
+              setStep(1);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(2);
+            }}
+          >
+            &bull;
+          </a>
           <p className="welcome__dots__blue">&bull;</p>
-          <a>&bull;</a>
+
+          <a
+            onClick={() => {
+              setStep(4);
+            }}
+          >
+            &bull;
+          </a>
         </div>
         <div className="welcome__buttons">
           <Link className="welcome__link" to="/login">

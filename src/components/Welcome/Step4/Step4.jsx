@@ -15,9 +15,28 @@ const Step4 = ({ setStep }) => {
           </p>
         </div>
         <div className="welcome__dots">
-          <a>&bull;</a>
-          <a>&bull;</a>
-          <a>&bull;</a>
+          <a
+            onClick={() => {
+              setStep(1);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(2);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(3);
+            }}
+          >
+            &bull;
+          </a>
+
           <p className="welcome__dots__blue">&bull;</p>
         </div>
         <div className="welcome__buttons">
@@ -25,7 +44,11 @@ const Step4 = ({ setStep }) => {
             <h5> Saltar </h5>
           </Link>
 
-          <Link className="welcome__link" to="/login">
+          <Link
+            className="welcome__link"
+            to="/login"
+            onClick={localStorage.setItem("intros", true)}
+          >
             <h5>Terminar</h5>
           </Link>
         </div>

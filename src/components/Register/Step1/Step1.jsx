@@ -22,6 +22,8 @@ const Step1 = ({ setStep }) => {
     console.log(user);
   };
 
+
+  
   return (
     <div className="register">
       <nav>
@@ -34,8 +36,9 @@ const Step1 = ({ setStep }) => {
         <h3>Dinos quien eres.</h3>
         <form onSubmit={handleSubmit(onSubmit)} className="register__form">
           <label className="register__photo">
-            <img src="/images/loginregister/cam3.png" alt="camara" />
-            {/*  <h3>Subir Foto</h3> */}
+          <img src={user.photo}  />
+
+           
 
             <input
               type="file"

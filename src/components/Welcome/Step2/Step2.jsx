@@ -13,10 +13,28 @@ const Step2 = ({ setStep }) => {
         </div>
 
         <div className="welcome__dots">
-          <a>&bull;</a>
+          <a
+            onClick={() => {
+              setStep(1);
+            }}
+          >
+            &bull;
+          </a>
           <p className="welcome__dots__blue">&bull;</p>
-          <a>&bull;</a>
-          <a>&bull;</a>
+          <a
+            onClick={() => {
+              setStep(3);
+            }}
+          >
+            &bull;
+          </a>
+          <a
+            onClick={() => {
+              setStep(4);
+            }}
+          >
+            &bull;
+          </a>
         </div>
 
         <div className="welcome__buttons">
