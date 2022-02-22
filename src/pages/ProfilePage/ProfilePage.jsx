@@ -35,10 +35,10 @@ const ProfilePage = () => {
     <div className="profilePage">
         <h3>Tu perfil de Applergic.</h3>
       <div className="profilePage__text">
-        <img src={user.photo} alt="foto perfil" />
-        <p><b>Nombre:</b> {user.name} </p>
+        <img src={!user.photo || user.photo === undefined || user.photo === null ? user.photo = "/images/loginregister/user.png" : user.photo} alt="foto perfil" />
+        <p><b>Nombre: </b> {user.name} </p>
         <p>
-        <b>Alérgico a:</b>{" "}
+        <b>Alérgico a: </b>{" "}
           {allergen.length > 0 &&
             allergen[0]
               .filter((item) => user.allergens.includes(item._id))
@@ -46,16 +46,16 @@ const ProfilePage = () => {
               .join(", ")}
           .
         </p>
-        <p><b>Teléfono:</b> {user.phone} </p>
+        <p><b>Teléfono: </b> {user.phone} </p>
         <p><b>Email: </b>{user.email} </p>
       </div>
 
         <h3>Tu contacto personal.</h3>
       <div className="profilePage__text">
-        <p><b>Nombre:</b> {user.contact} </p>
-        <p><b>Teléfono:</b> {user.phoneContact} </p>
-        <p><b>Email:</b> {user.emailContact} </p>
-        <p><b>Póliza:</b> {user.polize} </p>
+        <p><b>Nombre: </b> {user.contact} </p>
+        <p><b>Teléfono: </b> {user.phoneContact} </p>
+        <p><b>Email: </b> {user.emailContact} </p>
+        <p><b>Póliza: </b> {user.polize} </p>
       </div>
 
       <a href="/">Volver</a>
