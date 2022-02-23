@@ -13,6 +13,7 @@ import ScanDetailPage from "./pages/ScanPage/ScanDetailPage/ScanDetailPage";
 import ByePage from "./pages/ByePage/ByePage";
 import { JwtContext } from './shared/contexts/JwtContext';
 import RequireAuth from "./shared/components/RequireAuth/RequireAuth";
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 function App() {
   const [jwt, setJwt] = useState(localStorage.getItem('token') || null);
@@ -37,6 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
           <Route path="register" element={<RegisterPage />} />    
           <Route path="diary" element={<RequireAuth><DiaryPage /></RequireAuth>} />   
           <Route path="diaryDetail" element={<RequireAuth><DiaryDetailPage /></RequireAuth>} />

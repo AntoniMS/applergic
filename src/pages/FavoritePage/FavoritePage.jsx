@@ -130,7 +130,7 @@ const FavoritePage = () => {
                 <p>
                   <b>Ingredientes:</b> {searchUpdate.product.ingredients}
                 </p>
-                <form onSubmit={handleSubmit(updateNotes)} className="register__form">
+                <form onSubmit={handleSubmit(updateNotes)} className="notes__form">
                 <div className="note_info">
                   {searchUpdate.notes.length > 0 &&
                   <p>
@@ -157,6 +157,7 @@ const FavoritePage = () => {
                     <h4>Guardar</h4>
                   </button>
                 </div>
+                <a href="/">Volver</a>
                 </form>
               </div>
             </div>

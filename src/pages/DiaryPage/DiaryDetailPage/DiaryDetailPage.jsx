@@ -16,7 +16,7 @@ const DiaryDetailPage = () => {
   const getUserSearchs = () => {
     const userSearchs = [];
     user.searchs.map((search) => {
-      console.log(search);
+      
       API.get(`search/${search}`).then((res) => {
         userSearchs.push(res.data);
         setSearchs([...userSearchs]);
@@ -31,14 +31,14 @@ const DiaryDetailPage = () => {
       setAllergen([...userAllergens]);   
     });
   };
-  //console.log(userAllergens) //  res.data.filter((item) => user.allergens.includes(item._id))
+
 
   useEffect(() => {
     getUserSearchs();
     searchUserAllergens();
   }, []);
 
-   console.log(allergen)
+   
   const ref = React.createRef();
   const options = {
     orientation: 'landscape',
@@ -88,8 +88,8 @@ const DiaryDetailPage = () => {
                           {search.product.name}
                         </p>
                         <p className="toPdf__info">
-                          Notas: {search.product.notes}
-                        </p>
+                      Notas: {search.notes.length > 0 && search.notes.join(", ")}
+                    </p>
                       </div>
                     </div>
                   </div>

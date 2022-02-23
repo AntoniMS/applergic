@@ -153,6 +153,7 @@ const DiaryPage = () => {
                   }
                   <label  htmlFor="notes">Introduce nueva nota:</label>
                   <input id="notes" className="notes__input" type="text" name="notes" {...register("notes", {
+
                   required: "Añade tu nota, por favor.",
                 })}/>
                 {errors.notes ? (
@@ -171,6 +172,7 @@ const DiaryPage = () => {
                     <h4>Guardar</h4>
                   </button>
                 </div>
+                  <a href="/">Volver</a>
                 </form>
               </div>
             </div>
