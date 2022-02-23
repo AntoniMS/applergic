@@ -21,7 +21,7 @@ export default function LoginPage() {
         document.getElementById("login_subit_error").innerHTML =
           res.data.message;
       } else {
-        console.log(res);
+        
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("expiredToken", new Date().getTime() + 86400000);
         localStorage.setItem("user", JSON.stringify(res.data.user));

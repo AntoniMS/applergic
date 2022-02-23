@@ -39,7 +39,7 @@ const ScanDetailPage = () => {
     const saveSearchAlergic = (isAlergic) => {
         let fd = {isAlergic: isAlergic}
         API.put(`search/${search._id}`, fd).then((res) => {
-            console.log(res.data.new);
+           
             setSearch(res.data.new);
         });
     }
@@ -47,7 +47,7 @@ const ScanDetailPage = () => {
     const saveSearchFavorite = (boolean) => {
         let fd = {favorite: boolean}
         API.put(`search/${search._id}`, fd).then((res) => {
-            console.log(res.data.new);
+            
             setSearch(res.data.new);
             setIsFavorite(boolean);
         });
@@ -56,7 +56,7 @@ const ScanDetailPage = () => {
     const saveSearchDiary = (boolean) => {
         let fd = {diary: boolean}
         API.put(`search/${search._id}`, fd).then((res) => {
-            console.log(res.data.new);
+           // console.log(res.data.new);
             setSearch(res.data.new);
             setIsDiary(boolean);
         });
@@ -89,7 +89,7 @@ const ScanDetailPage = () => {
             }
             
             <div className="scan__wraper">
-            {console.log(isAlergic)}
+          
             {isAlergic === "Yes" ? 
                 <ScanResult result="unfit" photo={product.photo} /> 
             : isAlergic === "Maybe"

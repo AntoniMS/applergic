@@ -14,7 +14,7 @@ const FavoritePage = () => {
     const getUserSearchs = () =>{
       const userSearchs = [];
       user.searchs.map((search) => {
-        console.log(search);
+        
         API.get(`search/${search}`).then((res) => {
           userSearchs.push(res.data)
           setSearchs([...userSearchs]);        
@@ -26,7 +26,7 @@ const FavoritePage = () => {
     const saveSearchFavorite = (search) => {
       let fd = {favorite: false}
       API.put(`search/${search._id}`, fd).then((res) => {
-          console.log(res.data.new);
+         
           getUserSearchs();
       });
     }
@@ -43,7 +43,7 @@ const FavoritePage = () => {
       notes.push(formData.notes)
       let fd = { notes: notes };
       API.put(`search/${searchUpdate._id}`, fd).then((res) => {
-        console.log(res.data.new);
+       
         setSearchUpdate(null);
         getUserSearchs();
       });

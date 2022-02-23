@@ -88,7 +88,7 @@ const Step3 = ({ setStep }) => {
       
       <div className="allergen__container">
         <div className="allergen__box">
-        {console.log(userAllergens)}
+    
           {allergensKeys.map((letra) => {
             const result = userAllergens.filter(
               (allergen) => allergen.name[0].toUpperCase() === letra 

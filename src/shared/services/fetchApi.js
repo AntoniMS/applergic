@@ -4,14 +4,14 @@ import { API } from "./api";
 
 export const registerUser = (formData) => {
     API.post('/users/register', formData).then(res => {
-        console.log('Register user', res);
+        // console.log('Register user', res);
     })
 }
 
 export const updateUser = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     API.put(`/users/${user._id}`, user).then(res => {
-        console.log('Updated user', res);
+        // console.log('Updated user', res);
     })
 }
 

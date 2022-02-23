@@ -115,7 +115,7 @@ const HomePage = () => {
       </div>
       <div className="home__footer">
         <Link to="/">
-          <img src="/images/home/homeazul@3x.png" alt="Logo home" />
+          <img src="/images/home/azul2.png" alt="Logo home" />
         </Link>
 
         <Link to="/favs">
