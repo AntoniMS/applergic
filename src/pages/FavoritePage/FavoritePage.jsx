@@ -57,13 +57,13 @@ const FavoritePage = () => {
     {searchUpdate === null ? ( 
     <div className="favsPage">
       <div className="favsPage__icons">
-        <Link to="/">
+        {/* <Link to="/">
           <img src="/images/icons/calendario.png" alt="close" />
         </Link>
 
         <Link to="/">
           <img src="/images/icons/filter.png" alt="filter" />
-        </Link>
+        </Link> */}
 
         <Link to="/">
           <img src="/images/icons/close.png" alt="close" />

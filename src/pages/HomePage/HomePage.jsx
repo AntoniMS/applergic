@@ -49,13 +49,13 @@ const HomePage = () => {
         navigate("/diaryDetail");
       },
     },
-    {
-      label: "Términos",
-      icon: "pi pi-fw pi-info-circle",
-      command: () => {
-        navigate("/welcome");
-      },
-    },
+    // {
+    //   label: "Términos",
+    //   icon: "pi pi-fw pi-info-circle",
+    //   command: () => {
+    //     navigate("/welcome");
+    //   },
+    // },
     {
       label: "Salir",
       icon: "pi pi-fw pi-sign-out",
@@ -97,18 +97,18 @@ const HomePage = () => {
           </div>
 
           <div className="home__btn">
-            <Link className="home__link home__link--search" to="/search">
+            <a className="home__link home__link--search" target="_blank" rel="noreferrer" href="https://www.google.es/maps/search/restaurantes+alergicos/">
               <img src="/images/home/buscar.png" alt="Logo buscar" />
               <h4>Buscar</h4>
-            </Link>
+            </a>
             <p>Busca un comercio o restaurante para ti.</p>
           </div>
 
           <div className="home__btn">
-            <Link className="home__link home__link--sos" to="/sos">
+            <a className="home__link home__link--sos" href="tel:112">
               <img src="/images/home/sos1.png" alt="Logo sos" />
               <h4> S.O.S.</h4>
-            </Link>
+            </a>
             <p>¿Necesitas ayuda urgente? contactamos con emergencias.</p>
           </div>
         </div>

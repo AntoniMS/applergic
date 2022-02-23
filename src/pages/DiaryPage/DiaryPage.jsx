@@ -60,13 +60,13 @@ const DiaryPage = () => {
       {searchUpdate === null ? (
         <div className="diaryPage">
           <div className="diaryPage__icons">
-            <Link to="/">
+            {/* <Link to="/">
               <img src="/images/icons/calendario.png" alt="close" />
             </Link>
 
             <Link to="/">
               <img src="/images/icons/filter.png" alt="filter" />
-            </Link>
+            </Link> */}
 
             <Link to="/">
               <img src="/images/icons/close.png" alt="close" />
