@@ -152,7 +152,8 @@ const DiaryPage = () => {
                   </p>
                   }
                   <label  htmlFor="notes">Introduce nueva nota:</label>
-                  <input id="notes" type="text" name="notes" {...register("notes", {
+                  <input id="notes" className="notes__input" type="text" name="notes" {...register("notes", {
+
                   required: "Añade tu nota, por favor.",
                 })}/>
                 {errors.notes ? (

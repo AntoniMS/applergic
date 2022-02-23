@@ -22,30 +22,38 @@ const Step1 = ({ setStep }) => {
     console.log(user);
   };
 
+  const setImage = (e) => {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("photo_img").setAttribute("src", e.target.result);
+      document.getElementById("photo_img").setAttribute("alt", 'user photo');
+    };
 
-  
+    document.getElementsByClassName('register__photo')[0].classList.add('no_photo');
+
+    reader.readAsDataURL(e.target.files[0]);
+  };
+
   return (
     <div className="register">
       <nav>
-      <Link to="/login">
-        <img src="../../../images/icons/volver.png" />
-      </Link>
-      <p>Paso 1 de 4</p>
+        <Link to="/login">
+          <img src="../../../images/icons/volver.png" />
+        </Link>
+        <p>Paso 1 de 4</p>
       </nav>
       <div>
         <h3>Dinos quien eres.</h3>
         <form onSubmit={handleSubmit(onSubmit)} className="register__form">
           <label className="register__photo">
-          <img src={user.photo}  />
-
-           
-
+            <img id="photo_img" src={user.photo} alt={user.photo && 'user photo'} />
             <input
               type="file"
               id="photo"
               value={user.photo && user.photo[0]}
               accept="image/png, image/jpg, image/jpeg"
               {...register("photo")}
+              onChange={setImage}
             />
           </label>
 
