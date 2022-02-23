@@ -7,7 +7,7 @@ import { JwtContext } from "../../../shared/contexts/JwtContext";
 const Step4 = ({ setStep }) => {
   const { user, userAllergens } = React.useContext(RegisterContext);
   const { setJwt } = useContext(JwtContext);
-  console.log(user);
+  
 
   const saveUser = () => {
     let fd = new FormData();
@@ -17,8 +17,7 @@ const Step4 = ({ setStep }) => {
       }else{
         if(key === "allergens"){
           for (let allergenKey in user[key]){
-            console.log(allergenKey);
-            console.log(key[allergenKey])
+           
             fd.set(`allergens[${allergenKey}]`, user[key][allergenKey]);
           }
         }else{
@@ -27,12 +26,12 @@ const Step4 = ({ setStep }) => {
       }
       
     }
-    console.log(fd);
+    
     API.post("users/", fd).then((res) => {
       if(res.data.code === 404){
         setStep(6);
       }else{
-        console.log(user);
+        
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setJwt(res.data.token);

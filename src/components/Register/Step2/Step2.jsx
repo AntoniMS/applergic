@@ -18,7 +18,7 @@ const Step2 = ({ setStep }) => {
     user.phoneContact = formData.contactPhone;
     user.polize = formData.policy;
     setStep(3);
-    console.log(user);
+   
   };
 
 

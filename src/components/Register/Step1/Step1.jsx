@@ -19,7 +19,6 @@ const Step1 = ({ setStep }) => {
     user.password = formData.password;
     user.phone = formData.phone;
     setStep(2);
-    console.log(user);
   };
 
   const setImage = (e) => {

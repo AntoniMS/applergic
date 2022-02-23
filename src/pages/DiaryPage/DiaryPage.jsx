@@ -13,7 +13,7 @@ const DiaryPage = () => {
   const getUserSearchs = () => {
     const userSearchs = [];
     user.searchs.map((search) => {
-      console.log(search);
+     
       API.get(`search/${search}`).then((res) => {
         userSearchs.push(res.data);
         setSearchs([...userSearchs]);
@@ -24,7 +24,7 @@ const DiaryPage = () => {
   const saveSearchDiary = (search) => {
     let fd = { diary: false };
     API.put(`search/${search._id}`, fd).then((res) => {
-      console.log(res.data.new);
+      
       getUserSearchs();
     });
   };
@@ -45,7 +45,7 @@ const DiaryPage = () => {
       notes: ""
     })
     API.put(`search/${searchUpdate._id}`, fd).then((res) => {
-      console.log(res.data.new);
+      
       setSearchUpdate(null);
       getUserSearchs();
     });
@@ -115,7 +115,7 @@ const DiaryPage = () => {
                   </figure>
                 ))}
 
-              {console.log(searchs)}
+              
             </>
           </div>
 

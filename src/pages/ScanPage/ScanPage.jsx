@@ -17,9 +17,9 @@ const ScanPage = () => {
   let qr_class = (option === "qr") ? "active" : "";
 
   const changeData = (code)=>{
-    console.log("enter", code);
+    
     if(code !== data){
-      console.log("change", code);
+     
       setData(code);
       findCode(code);
       //searchCode(code);
@@ -28,7 +28,7 @@ const ScanPage = () => {
 
   const findCode = (code) => {
     API.get("products/barcode/"+code).then((res) => {
-      console.log(res.data);
+      
       setProduct(res.data);
       saveSearch(res.data._id);
     });
@@ -50,14 +50,14 @@ const ScanPage = () => {
     
     let searchs = [];
     for (let key in user.searchs) {
-      console.log(`searchs[${key}]`, user.searchs[key])
+     
       searchs.push(user.searchs[key]);    
     }
     let fd = {searchs: searchs};
-    console.log(fd);
+    
     
     API.put("users/addSearch/"+user._id, fd).then((res) => {
-      console.log(res.data);
+      
     });
   }
 
@@ -81,7 +81,7 @@ const ScanPage = () => {
 
   return (
     <SearchContext.Provider value={{product, setProduct, search, setSearch}}>
-    {console.log(search)}
+    
     { search === null ? (
     <div className="barcode">
       <div className="barcode__close">
