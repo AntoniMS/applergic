@@ -18,11 +18,11 @@ const HomePage = () => {
       label: "Perfil",
       icon: "pi pi-fw pi-user",
       command: () => {
-        navigate("/login");
+        navigate("/profile");
       },
     },
     {
-      label: "Favorito",
+      label: "Favoritos",
       icon: "pi pi-fw pi-star",
       command: () => {
         navigate("/favs");
@@ -35,22 +35,22 @@ const HomePage = () => {
         navigate("/diary");
       },
     },
-    {
+   /*  {
       label: "Compartir",
       icon: "pi pi-fw pi-share-alt",
       command: () => {
         navigate("/");
       },
-    },
+    }, */
     {
-      label: "Traductor",
-      icon: "pi pi-fw pi-globe",
+      label: "Informe",
+      icon: "pi pi-fw pi-file-pdf",
       command: () => {
         navigate("/diaryDetail");
       },
     },
     {
-      label: "Terminos",
+      label: "Términos",
       icon: "pi pi-fw pi-info-circle",
       command: () => {
         navigate("/welcome");
@@ -115,15 +115,15 @@ const HomePage = () => {
       </div>
       <div className="home__footer">
         <Link to="/">
-          <img src="/images/home/homeazul@2x.png" alt="Logo home" />
+          <img src="/images/home/homeazul@3x.png" alt="Logo home" />
         </Link>
 
         <Link to="/favs">
-          <img src="/images/home/favorito@2x.png" alt="Logo favoritos" />
+          <img src="/images/home/favorito@3x.png" alt="Logo favoritos" />
         </Link>
 
         <Link to="/diary">
-          <img src="/images/home/diario@2x.png" alt="Logo diario" />
+          <img src="/images/home/diario@3x.png" alt="Logo diario" />
         </Link>
           <SocialMedia/>
         

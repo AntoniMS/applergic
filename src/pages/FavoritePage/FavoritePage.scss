@@ -97,3 +97,43 @@
     }
   }
   
+  .notes__form{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    a {
+      font-size: 12px;
+      margin: 5px auto;
+      font-weight: 600;
+      color: rgba(0, 192, 226, 0.924);
+      text-decoration: none;
+    }
+  }
+  
+  .note_info{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    
+    label{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 222px;
+      margin: 8px auto;
+      font-size: 15px;
+      color: rgb(128, 128, 128);
+      font-weight: 550;
+    }
+  
+    input {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: rgb(128, 128, 128);
+      font-weight: 450;
+      width: 300px;   
+    }
+  }
