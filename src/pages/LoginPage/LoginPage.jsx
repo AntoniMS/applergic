@@ -112,7 +112,7 @@ export default function LoginPage() {
             </label>
             <div className="login__footer">
 
-            <a href="#">¿Olvidaste tu contraseña?</a>
+            {/* <a href="#">¿Olvidaste tu contraseña?</a> */}
 
             <button  disabled={!isValid}  className="login__button" type="submit">
               Entrar
@@ -123,7 +123,7 @@ export default function LoginPage() {
             
               <p>¿nuevo en Applergic?</p>
               <Link to="/register"><h2>Crea tu cuenta aquí</h2></Link>
-              <a href="/welcome">Me registraré en otro momento</a>
+              {/* <a href="/welcome">Me registraré en otro momento</a> */}
             </div>
           </form>
         </div>

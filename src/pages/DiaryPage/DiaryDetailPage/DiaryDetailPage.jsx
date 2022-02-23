@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API } from "../../../shared/services/api";
 import "./DiaryDetailPage.scss";
 import ReactToPdf from "react-to-pdf";
+import { Link } from "react-router-dom";
 
 const DiaryDetailPage = () => {
   const [searchs, setSearchs] = useState([]);
@@ -50,6 +51,19 @@ const DiaryDetailPage = () => {
       {({ toPdf, targetRef }) => (
         <div ref={targetRef}>
         <div className="diaryDetail">
+          <div className="diaryPage__icons">
+            {/* <Link to="/">
+              <img src="/images/icons/calendario.png" alt="close" />
+            </Link>
+
+            <Link to="/">
+              <img src="/images/icons/filter.png" alt="filter" />
+            </Link> */}
+
+            <Link to="/">
+              <img src="/images/icons/close.png" alt="close" />
+            </Link>
+          </div>
           <div className="diaryDetail__hero">
             <h3>Este es el informe basado en tu Diario.</h3>
             <p>

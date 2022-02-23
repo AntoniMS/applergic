@@ -6,7 +6,7 @@
   height: 100%;
 
   &__icons {
-    margin-left: 270px;
+    margin-left: 320px;
 
     display: flex;
 
@@ -89,6 +89,7 @@
       margin: 10px;
       img {
         padding: 13px 0;
+        cursor: pointer;
       }
     }
     &__info {

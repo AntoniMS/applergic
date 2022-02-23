@@ -10,7 +10,8 @@ const Intro = ({ setStep }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    jwt !== null && navigate("/");
+    jwt !== null && navigate("/login");
+    localStorage.getItem('intros', true) && navigate("/login");
   }, []);
 
   return (
@@ -19,11 +20,7 @@ const Intro = ({ setStep }) => {
       <img src="/images/welcome/group.png" alt="logoApplergicFigurasGiro" />
       </div>
       <div onClick={()=>{
-            if(jwt !== null || localStorage.getItem('intros', true)){
-              navigate("/")
-            }else{
               setStep(1);
-            }
             }}>
       <img
         src="/images/welcome/logoApplergicFigurasGiro.png"

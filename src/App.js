@@ -36,7 +36,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
           <Route path="register" element={<RegisterPage />} />    
